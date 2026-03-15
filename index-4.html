@@ -1,0 +1,2231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+<meta name="theme-color" content="#131313" id="theme-meta"/>
+<meta name="format-detection" content="telephone=no,date=no,address=no,email=no"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<title>Messages</title>
+<link rel="manifest" href="data:application/json,{%22name%22:%22Messages%22,%22short_name%22:%22Messages%22,%22start_url%22:%22/%22,%22display%22:%22standalone%22,%22background_color%22:%22%23ffffff%22,%22theme_color%22:%22%23ffffff%22,%22icons%22:[{%22src%22:%22data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAERElEQVR42u3ce7OOZRjGYV+iVLRRyBcr7aSEfDxtiNLOXq2SShvUkmineqv1jmWYd965M57ddR7nzO8DuJ/rWMYfy4YNZjadzWz0c6WO2yBx8AaEozcYHL7FQvAZLRKCz2aREHwmi4Xg01gsAp/EIhH4DBYLwdNbLAJPbrEIPLXFIvDEFovA01o0As9qsQA8qcUi8JQWi8ATWjQCz2exADydRSPwbBYLwJNZNALPZbEAPJVFI/BMFgvAE1k0As9jAJglApjaH2THgb81kkogcPBKATEZADsO/KWJB8A9H/+fKtLoATh8pUEYJYCnX7+p4gHg+CEA4O7j/0NhAbB+/L8rtHgAjkCxALbv/01aKxTAr9JacQB8dA2NYOCf/r9IdzTY3wL9H/8NaWERALbtuyEtrDyAbfuuS0sDQADUBfCztLTiAK5JSysNYOvea9LSygLYuvenTvt3K+qurr/fXd+yIoCrneZIuwZwddZXAAAAQD0Aq53mSLsGsDrrq5IAnnptVWqqKIAfpaaKAvhBagoAAVAPwBWpqZIAntxzWWoKAAFQD8AlqSkABEA9AN9LTZUEsOXV76SmABAA9QB8KzVVFMA3UlMACIBqAJ545aLUVFEAX0tNASAA6gH4qtP82uK8rt+5jwAAAIBqAB7f/WWnOf55Xb9zHxUFcKHTHP8tABdmUw8ARVcUwBdSU0UBnJeaKgngsZfPS00VBfC51BQAAqAegM+kpooCWJGaKgng0V0rUlNFAXwqNVUUwCdSUwAIgHoAzklNlQSw+aWzUlMACIB6AM5ITQEgAOoBOC01VRLAphdPddrUf5Wx6/eZUgAAAEA9ACc7bfoATs60/i0rAjjRadMHcGKm9W8JgAAoBeCRF45LTQEgAOoB+FhqqiiAj6SmABAA1QA8/PyHUlNFAXwgNQWAAKgH4H2pqZIA5giOSUvrc70DeOi5Y9LSigN4T1oaAAKgLoB3paWVBjBHcFRaWN8bBMDGnUelhYUAOCItLALAHME70h0NMQAEwGygbdx5WFprqA0K4L89+OxhhTfkRgDgkMKLBjBH8LZCG3qjAACB448HMEfwlkIay0YF4NYeeOZNFW1sGyUACBx/PIDbEN7QxBvzRg/gNoSDmlhT2GQAwODog/4R7IMbAI7fAHD4BoDDNwAcvwHg8A0Ax28AOHwDwPEbAA7fAHD4BoDjNwAcvgHg+A0Ah2/xAMxiAZhFAjD7XwDGhsDxW6/HXwGAWSwAs0gAZpEAzGIBmEUCMIsFYBYJwKw3AFP8P0LN7tvxA2AAmAFgFgoAAos+fgAMALNkABBY9PEDYPEAILDo4wfA4gFAYNHHD4DFA4DAoo8fAIsHAIFFHz8EFn/8EFj88QNg8QAgsOjjh8Dijx8Ciz9+CCz++CGw+OMHweIPHwJz/BCY4wfBHD4I5vBBMIcPgjl8GMzRA2EOHhLHPcb9A/jTXQQ5J5AcAAAAAElFTkSuQmCC%22,%22sizes%22:%22192x192%22,%22type%22:%22image/png%22},{%22src%22:%22data:image/png;base64,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%22,%22sizes%22:%22512x512%22,%22type%22:%22image/png%22}]}"/
+<link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAERElEQVR42u3ce7OOZRjGYV+iVLRRyBcr7aSEfDxtiNLOXq2SShvUkmineqv1jmWYd965M57ddR7nzO8DuJ/rWMYfy4YNZjadzWz0c6WO2yBx8AaEozcYHL7FQvAZLRKCz2aREHwmi4Xg01gsAp/EIhH4DBYLwdNbLAJPbrEIPLXFIvDEFovA01o0As9qsQA8qcUi8JQWi8ATWjQCz2exADydRSPwbBYLwJNZNALPZbEAPJVFI/BMFgvAE1k0As9jAJglApjaH2THgb81kkogcPBKATEZADsO/KWJB8A9H/+fKtLoATh8pUEYJYCnX7+p4gHg+CEA4O7j/0NhAbB+/L8rtHgAjkCxALbv/01aKxTAr9JacQB8dA2NYOCf/r9IdzTY3wL9H/8NaWERALbtuyEtrDyAbfuuS0sDQADUBfCztLTiAK5JSysNYOvea9LSygLYuvenTvt3K+qurr/fXd+yIoCrneZIuwZwddZXAAAAQD0Aq53mSLsGsDrrq5IAnnptVWqqKIAfpaaKAvhBagoAAVAPwBWpqZIAntxzWWoKAAFQD8AlqSkABEA9AN9LTZUEsOXV76SmABAA9QB8KzVVFMA3UlMACIBqAJ545aLUVFEAX0tNASAA6gH4qtP82uK8rt+5jwAAAIBqAB7f/WWnOf55Xb9zHxUFcKHTHP8tABdmUw8ARVcUwBdSU0UBnJeaKgngsZfPS00VBfC51BQAAqAegM+kpooCWJGaKgng0V0rUlNFAXwqNVUUwCdSUwAIgHoAzklNlQSw+aWzUlMACIB6AM5ITQEgAOoBOC01VRLAphdPddrUf5Wx6/eZUgAAAEA9ACc7bfoATs60/i0rAjjRadMHcGKm9W8JgAAoBeCRF45LTQEgAOoB+FhqqiiAj6SmABAA1QA8/PyHUlNFAXwgNQWAAKgH4H2pqZIA5giOSUvrc70DeOi5Y9LSigN4T1oaAAKgLoB3paWVBjBHcFRaWN8bBMDGnUelhYUAOCItLALAHME70h0NMQAEwGygbdx5WFprqA0K4L89+OxhhTfkRgDgkMKLBjBH8LZCG3qjAACB448HMEfwlkIay0YF4NYeeOZNFW1sGyUACBx/PIDbEN7QxBvzRg/gNoSDmlhT2GQAwODog/4R7IMbAI7fAHD4BoDDNwAcvwHg8A0Ax28AOHwDwPEbAA7fAHD4BoDjNwAcvgHg+A0Ah2/xAMxiAZhFAjD7XwDGhsDxW6/HXwGAWSwAs0gAZpEAzGIBmEUCMIsFYBYJwKw3AFP8P0LN7tvxA2AAmAFgFgoAAos+fgAMALNkABBY9PEDYPEAILDo4wfA4gFAYNHHD4DFA4DAoo8fAIsHAIFFHz8EFn/8EFj88QNg8QAgsOjjh8Dijx8Ciz9+CCz++CGw+OMHweIPHwJz/BCY4wfBHD4I5vBBMIcPgjl8GMzRA2EOHhLHPcb9A/jTXQQ5J5AcAAAAAElFTkSuQmCC"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html,body{height:100%;overflow:hidden;font-family:'Roboto',sans-serif;background:#131313;}
+
+/* ── SCREENS ── */
+.screen{position:fixed;inset:0;display:none;flex-direction:column;overflow:hidden;}
+.screen.active{display:flex;}
+
+/* ════════════════════════════════
+   GOOGLE MESSAGES INBOX
+════════════════════════════════ */
+#s-inbox{background:#131313;}
+.gm-topbar{
+  padding:16px 16px 8px;
+  display:flex;flex-direction:column;
+  background:#131313;
+  flex-shrink:0;
+}
+.gm-topbar-row1{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;}
+.gm-title{color:#fff;font-size:22px;font-weight:400;letter-spacing:0;}
+.gm-topbar-icons{display:flex;gap:16px;align-items:center;}
+.gm-search-icon{color:#ccc;}
+.gm-avatar{
+  width:36px;height:36px;border-radius:50%;
+  background:#e91e8c;
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-size:15px;font-weight:700;
+  cursor:pointer;user-select:none;
+  transition:transform 0.1s;
+}
+.gm-avatar:active{transform:scale(0.9);}
+.gm-searchbar{
+  background:#2a2a2a;border-radius:24px;
+  padding:10px 16px;display:flex;align-items:center;gap:10px;
+  color:#888;font-size:15px;
+}
+.inbox-list{flex:1;overflow-y:auto;padding-bottom:80px;}
+.inbox-list::-webkit-scrollbar{display:none;}
+
+/* .thread-item handled by swipe CSS */
+.thread-avatar{
+  width:48px;height:48px;border-radius:50%;
+  background:#3a3a3a;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.thread-avatar svg{width:26px;height:26px;fill:#888;}
+.thread-body{flex:1;min-width:0;}
+.thread-name-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:2px;}
+.thread-name{color:#fff;font-size:15px;font-weight:500;}
+.thread-time{color:#888;font-size:12px;}
+.thread-preview{color:#888;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.thread-badge{
+  flex-shrink:0;
+  background:#1a73e8;color:#fff;
+  font-size:11px;font-weight:700;
+  min-width:20px;height:20px;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  padding:0 5px;
+}
+
+/* ── FAB ── */
+.gm-fab{
+  position:fixed;bottom:24px;right:20px;
+  width:56px;height:56px;border-radius:16px;
+  background:#1a73e8;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 16px rgba(0,0,0,0.5);
+  cursor:pointer;z-index:10;
+}
+.gm-fab svg{width:24px;height:24px;fill:#fff;}
+
+/* ── SECRET TAP INDICATOR ── */
+.tap-flash{
+  position:fixed;top:12px;right:12px;
+  width:8px;height:8px;border-radius:50%;
+  background:#1a73e8;opacity:0;
+  transition:opacity 0.15s;
+  z-index:9999;pointer-events:none;
+}
+.tap-flash.lit{opacity:1;}
+
+/* ════════════════════════════════
+   FAKE THREAD VIEW (read-only SMS)
+════════════════════════════════ */
+#s-thread{background:#000;}
+/* ══ THREAD HEADER ══ */
+.thread-header{display:flex;align-items:center;gap:8px;padding:8px 10px;background:#1a1a1a;flex-shrink:0;min-height:56px;position:relative;}
+.thread-header-back{background:none !important;border:none !important;padding:6px;cursor:pointer;display:flex;align-items:center;flex-shrink:0;outline:none !important;-webkit-tap-highlight-color:transparent !important;box-shadow:none !important;-webkit-appearance:none;}
+.thread-header-avatar{width:36px;height:36px;border-radius:50%;background:#555;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:15px;font-weight:700;color:#fff;}
+.thread-header-info{flex:1;display:flex;flex-direction:column;gap:1px;overflow:hidden;cursor:pointer;min-width:0;}
+.thread-header-name{color:#fff;font-size:16px;font-weight:600;white-space:normal;overflow:hidden;text-overflow:ellipsis;display:block;word-break:break-word;}
+.thread-header-sub{color:#aaa;font-size:11px;display:block;}
+.thread-header-actions{display:flex;align-items:center;gap:2px;}
+.thread-action-btn{background:none;border:none;padding:8px;cursor:pointer;display:flex;align-items:center;border-radius:50%;}
+.thread-action-btn:active{background:#333;}
+/* ══ THREAD DROPDOWN MENU ══ */
+.thread-menu{position:absolute;top:54px;right:4px;background:#2a2a2a;border-radius:8px;z-index:1000;min-width:210px;box-shadow:0 4px 20px rgba(0,0,0,0.6);overflow:hidden;}
+.thread-menu-item{padding:14px 18px;color:#fff;font-size:15px;cursor:pointer;font-family:'Roboto',sans-serif;}
+.thread-menu-item:active{background:#3a3a3a;}
+.thread-menu-item.danger{color:#ef5350;}
+.thread-menu-overlay{position:fixed;inset:0;z-index:999;}
+/* ══ THREAD MESSAGES ══ */
+.thread-msgs-area{flex:1;overflow-y:auto;padding:8px 10px;display:flex;flex-direction:column;gap:2px;}
+.fake-date-sep{text-align:center;color:#888;font-size:12px;margin:8px 0 4px;font-family:'Roboto',sans-serif;}
+.fake-timestamp{color:#888;font-size:12px;text-align:left;padding:1px 4px 6px;font-family:'Roboto',sans-serif;}
+.fake-timestamp.right{text-align:right;}
+.fake-bub{background:#2f3033;border-radius:18px 18px 18px 4px;padding:10px 14px;max-width:82%;align-self:flex-start;color:#fff;font-size:14.5px;line-height:1.5;font-family:'Roboto',sans-serif;-webkit-touch-callout:none;user-select:none;}
+.fake-bub.sel-thread{background:#1a4a8a;}
+.fake-bub-sent{background:#1565c0;border-radius:18px 18px 4px 18px;padding:10px 14px;max-width:82%;align-self:flex-end;color:#fff;font-size:14.5px;line-height:1.5;font-family:'Roboto',sans-serif;-webkit-touch-callout:none;user-select:none;}
+.fake-bub-sent.sel-thread{background:#0d3b7a;}
+.msg-not-sent{color:#ef5350;font-size:11px;text-align:right;padding:1px 4px 4px;display:flex;align-items:center;justify-content:flex-end;gap:4px;}
+/* ══ DELETE BAR ══ */
+.thread-del-bar{display:none !important;flex-direction:row;align-items:center;justify-content:space-between;padding:10px 16px;background:#1a1a1a;border-top:1px solid #333;flex-shrink:0;}
+.thread-del-bar.show{display:flex !important;}
+.thread-del-cancel{background:none;border:none;color:#aaa;font-size:14px;cursor:pointer;padding:6px;}
+.thread-del-count{color:#fff;font-size:14px;font-weight:500;}
+.thread-del-btn{background:#c62828;border:none;color:#fff;padding:8px 18px;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;}
+/* ══ REPLY BOX ══ */
+.thread-reply-box{display:flex;align-items:center;gap:6px;padding:8px 10px;background:#1a1a1a;border-top:1px solid #2a2a2a;flex-shrink:0;}
+.reply-attach-btn{background:none;border:none;padding:6px;cursor:pointer;display:flex;align-items:center;}
+.reply-input-wrap{flex:1;display:flex;align-items:center;background:#2a2a2a;border-radius:24px;padding:2px 12px;gap:4px;}
+.reply-input{flex:1;background:none;border:none;outline:none;color:#fff;font-size:15px;font-family:'Roboto',sans-serif;padding:8px 0;}
+.reply-input::placeholder{color:#888;}
+.reply-emoji-btn{background:none;border:none;padding:4px;cursor:pointer;display:flex;align-items:center;}
+.reply-send-btn{width:40px;height:40px;border-radius:50%;background:#1a73e8;border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;}
+.reply-send-btn:active{background:#1557b0;}
+.thread-msgs-area{flex:1;overflow-y:auto;padding:12px 8px;display:flex;flex-direction:column;gap:8px;}
+.thread-msgs-area::-webkit-scrollbar{display:none;}
+.fake-bub{
+  background:#2f3033;border-radius:20px;
+  padding:12px 15px;max-width:85%;
+  color:#fff;-webkit-text-size-adjust:none;
+  -webkit-touch-callout:none;
+  font-size:15px;line-height:1.55;
+  font-family:'Roboto',sans-serif;
+}
+.fake-date-sep{text-align:center;color:#888;font-size:12px;margin:8px 0;}
+.fake-timestamp{color:#aaa;font-size:11.5px;margin-top:4px;padding-left:4px;}
+.thread-footer{
+  padding:0;text-align:center;
+  color:#888;font-size:13px;flex-shrink:0;
+  background:#000;
+}
+.thread-footer a{color:#8ab4f8;text-decoration:none;}
+
+/* ════════════════════════════════
+   SPLASH
+════════════════════════════════ */
+#s-splash{
+  background:#3cb72e;
+  align-items:center;justify-content:center;
+  flex-direction:column;gap:16px;z-index:999;
+}
+.splash-brand{color:rgba(255,255,255,0.7);font-size:13px;letter-spacing:1px;}
+.splash-logo-wrap{display:flex;flex-direction:column;align-items:center;animation:bounce 1s infinite alternate;}
+@keyframes bounce{from{transform:translateY(0);}to{transform:translateY(-8px);}}
+@keyframes cb-fade{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+@keyframes shake{0%,100%{transform:translateX(0);}20%,60%{transform:translateX(-8px);}40%,80%{transform:translateX(8px);}}
+.splash-tagline{color:rgba(255,255,255,0.8);font-size:12px;letter-spacing:2px;margin-top:8px;}
+
+/* ════════════════════════════════
+   SETUP
+════════════════════════════════ */
+#s-setup{background:#3cb72e;align-items:center;justify-content:center;padding:32px;}
+.setup-card{background:#fff;border-radius:20px;padding:32px 24px;width:100%;max-width:340px;text-align:center;}
+.setup-card h2{color:#3cb72e;font-size:22px;margin-bottom:8px;}
+.setup-card p{color:#666;font-size:14px;margin-bottom:24px;}
+.setup-card input{
+  width:100%;padding:14px;border:2px solid #eee;border-radius:12px;
+  font-size:16px;outline:none;margin-bottom:16px;
+  font-family:'Roboto',sans-serif;
+}
+.setup-card input:focus{border-color:#3cb72e;}
+.setup-btn{
+  width:100%;padding:14px;background:#3cb72e;color:#fff;
+  border:none;border-radius:12px;font-size:16px;font-weight:700;cursor:pointer;
+}
+
+/* ════════════════════════════════
+   MPESA HOME
+════════════════════════════════ */
+#s-home{background:#f0f2f5;}
+.home-header{
+  background:#3cb72e;padding:20px 20px 28px;
+  flex-shrink:0;
+}
+.home-header-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;}
+.home-greeting{color:rgba(255,255,255,0.85);font-size:14px;}
+.home-name{color:#fff;font-size:20px;font-weight:700;}
+.home-back-btn{
+  background:rgba(0,0,0,0.2);border:none;color:#fff;
+  padding:6px 12px;border-radius:20px;font-size:12px;cursor:pointer;
+}
+.balance-card{
+  background:#fff;border-radius:16px;padding:16px 20px;
+  margin:0 0 0 0;
+}
+.bal-label{color:#666;font-size:13px;margin-bottom:4px;}
+.bal-amt{color:#111;font-size:28px;font-weight:700;}
+.bal-row{display:flex;justify-content:space-between;align-items:center;}
+.bal-eye{color:#3cb72e;cursor:pointer;}
+.bal-eye svg{width:22px;height:22px;fill:#3cb72e;}
+.fuliza-banner{
+  background:#fff3e0;border-left:4px solid #ff9800;
+  border-radius:8px;padding:10px 14px;margin-top:12px;
+  font-size:13px;color:#e65100;
+}
+
+.home-body{flex:1;overflow-y:auto;padding:20px 16px;padding-bottom:30px;}
+.home-body::-webkit-scrollbar{display:none;}
+.section-title{color:#333;font-size:13px;font-weight:600;margin-bottom:12px;letter-spacing:0.3px;}
+.action-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;}
+.action-tile{
+  background:#fff;border-radius:16px;padding:18px 14px;
+  display:flex;flex-direction:column;align-items:flex-start;gap:8px;
+  cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,0.08);
+  border:none;width:100%;text-align:left;
+}
+.action-tile:active{transform:scale(0.97);}
+.tile-icon{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;}
+.tile-icon svg{width:22px;height:22px;}
+.tile-label{color:#111;font-size:13px;font-weight:600;}
+.tile-sub{color:#888;font-size:11px;}
+.action-full{
+  background:#fff;border-radius:16px;padding:16px 20px;
+  display:flex;align-items:center;gap:14px;
+  cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,0.08);
+  border:none;width:100%;text-align:left;margin-bottom:12px;
+}
+.action-full:active{transform:scale(0.98);}
+.action-full-label{color:#111;font-size:14px;font-weight:600;}
+.action-full-sub{color:#888;font-size:12px;}
+.bottom-btns{display:flex;gap:12px;margin-top:4px;}
+.btn-deposit{
+  flex:1;padding:14px;background:#3cb72e;color:#fff;
+  border:none;border-radius:14px;font-size:14px;font-weight:700;cursor:pointer;
+}
+.btn-msgs{
+  flex:1;padding:14px;background:#fff;color:#3cb72e;
+  border:2px solid #3cb72e;border-radius:14px;font-size:14px;font-weight:700;cursor:pointer;
+}
+
+/* ════════════════════════════════
+   FORMS
+════════════════════════════════ */
+.form-screen{background:#f0f2f5;}
+.form-header{
+  background:#3cb72e;padding:16px 20px;
+  display:flex;align-items:center;gap:14px;flex-shrink:0;
+}
+.form-back{background:none;border:none;color:#fff;cursor:pointer;padding:4px;outline:none;-webkit-tap-highlight-color:transparent;}
+.form-back svg{width:24px;height:24px;fill:#fff;display:block;}
+.form-title{color:#fff;font-size:18px;font-weight:600;}
+.form-body{flex:1;overflow-y:auto;padding:20px 16px;}
+.form-body::-webkit-scrollbar{display:none;}
+.form-card{background:#fff;border-radius:16px;padding:20px;margin-bottom:16px;}
+.form-group{margin-bottom:16px;}
+.form-group label{display:block;color:#555;font-size:13px;margin-bottom:6px;font-weight:500;}
+.form-group input{
+  width:100%;padding:13px 14px;border:1.5px solid #e0e0e0;
+  border-radius:10px;font-size:15px;outline:none;
+  font-family:'Roboto',sans-serif;color:#111;background:#fff;
+}
+.form-group input:focus{border-color:#3cb72e;}
+.fee-note{color:#3cb72e;font-size:13px;margin-top:6px;font-weight:500;}
+.submit-btn{
+  width:100%;padding:15px;background:#3cb72e;color:#fff;
+  border:none;border-radius:14px;font-size:16px;font-weight:700;cursor:pointer;
+  margin-top:4px;
+}
+.submit-btn:active{background:#2ea828;}
+
+/* ════════════════════════════════
+   MPESA MESSAGES
+════════════════════════════════ */
+#s-msgs{background:#000;border:none;outline:none;}
+.msgs-header{
+  background:#000;padding:12px 16px 11px;
+  display:flex;align-items:center;gap:14px;flex-shrink:0;
+  border:none;outline:none;box-shadow:none;margin-bottom:0;
+}
+.msgs-back{background:none;border:none;color:#fff;cursor:pointer;padding:4px;}
+.msgs-back svg{width:24px;height:24px;fill:#fff;display:block;}
+.msgs-hdr-avatar{width:36px;height:36px;border-radius:50%;background:#555;
+  display:flex;align-items:center;justify-content:center;}
+.msgs-hdr-avatar svg{width:20px;height:20px;fill:#ccc;}
+.msgs-hdr-name{color:#fff;font-size:18px;font-weight:400;flex:1;}
+.msgs-hdr-dots{color:#ccc;font-size:22px;cursor:pointer;}
+.msgs-list{flex:1;overflow-y:auto;padding:8px 8px;display:flex;flex-direction:column;gap:8px;background:#000;}
+.msgs-list::-webkit-scrollbar{display:none;}
+.msg-bub{
+  background:#2f3033;border-radius:20px;
+  padding:12px 15px;max-width:88%;
+  color:#fff!important;font-size:15px;line-height:1.55;
+  font-family:'Roboto',sans-serif;
+  cursor:pointer;user-select:none;
+}
+.msg-bub u{text-decoration:underline;}
+.msg-bub a{color:#8ab4f8;text-decoration:underline;}
+.msg-bub.sel{background:#1a2e1a;outline:2px solid #3cb72e;}
+.msg-date-sep{text-align:center;color:#888;font-size:12px;margin:8px 0;}
+.msg-time-stamp{font-size:11.5px;color:#cccccc;font-family:'Roboto',sans-serif;margin-top:5px;padding-left:4px;}
+.msgs-footer{background:#000;padding:10px 16px;text-align:center;flex-shrink:0;
+  border-top:none;}
+.msgs-footer-text{color:#888;font-size:13px;}
+.msgs-footer-text a{color:#8ab4f8;text-decoration:underline;cursor:pointer;}
+.del-bar{
+  background:#1a1a1a;padding:12px 16px;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-shrink:0;display:none;
+}
+.del-bar.show{display:flex;}
+.del-count{color:#fff;font-size:14px;}
+.del-btn{background:#c62828;color:#fff;border:none;padding:8px 18px;border-radius:20px;font-size:14px;cursor:pointer;}
+
+/* ════════════════════════════════
+   PASSWORD MODAL
+════════════════════════════════ */
+.modal-overlay{
+  position:fixed;inset:0;background:rgba(0,0,0,0.7);
+  display:none;align-items:center;justify-content:center;
+  z-index:500;padding:24px;
+}
+.modal-overlay.show{display:flex;}
+.modal-box{
+  background:#fff;border-radius:20px;padding:28px 24px;
+  width:100%;max-width:320px;text-align:center;
+}
+.modal-box h3{font-size:18px;color:#111;margin-bottom:8px;}
+.modal-box p{font-size:13px;color:#666;margin-bottom:20px;}
+.modal-box input{
+  width:100%;padding:13px;border:2px solid #eee;border-radius:12px;
+  font-size:16px;text-align:center;outline:none;margin-bottom:16px;
+  letter-spacing:4px;font-family:'Roboto',sans-serif;
+}
+.modal-box input:focus{border-color:#3cb72e;}
+.modal-btns{display:flex;gap:10px;}
+.modal-btn-cancel{flex:1;padding:12px;background:#f5f5f5;border:none;border-radius:12px;font-size:15px;cursor:pointer;}
+.modal-btn-ok{flex:1;padding:12px;background:#3cb72e;color:#fff;border:none;border-radius:12px;font-size:15px;font-weight:700;cursor:pointer;}
+
+/* ════════════════════════════════
+   FULIZA MODAL
+════════════════════════════════ */
+#fuliza-modal{z-index:600;}
+.fuliza-box{
+  background:#fff;border-radius:20px;padding:24px;
+  width:100%;max-width:320px;
+}
+.fuliza-box h3{font-size:17px;color:#111;margin-bottom:6px;}
+.fuliza-box p{font-size:13px;color:#555;margin-bottom:4px;}
+.fuliza-breakdown{background:#f5f5f5;border-radius:12px;padding:14px;margin:14px 0;}
+.fuliza-row{display:flex;justify-content:space-between;font-size:13px;color:#333;margin-bottom:6px;}
+.fuliza-row:last-child{margin-bottom:0;font-weight:700;color:#111;}
+.fuliza-btns{display:flex;gap:10px;margin-top:4px;}
+.fuliza-btn-no{flex:1;padding:12px;background:#f5f5f5;border:none;border-radius:12px;font-size:15px;cursor:pointer;}
+.fuliza-btn-yes{flex:1;padding:12px;background:#ff9800;color:#fff;border:none;border-radius:12px;font-size:15px;font-weight:700;cursor:pointer;}
+
+/* ════════════════════════════════
+   TOAST & NOTIFICATION
+════════════════════════════════ */
+.toast{
+  position:fixed;bottom:80px;left:50%;transform:translateX(-50%);
+  background:#323232;color:#fff;padding:12px 20px;border-radius:24px;
+  font-size:14px;z-index:999;opacity:0;transition:opacity 0.3s;
+  white-space:nowrap;pointer-events:none;
+}
+.toast.show{opacity:1;}
+
+.notif-popup{
+  position:fixed;top:-130px;left:0;right:0;
+  z-index:9999;padding:8px 12px;
+  transition:top 0.35s cubic-bezier(0.25,0.46,0.45,0.94);
+  pointer-events:none;
+}
+.notif-popup.show{top:0;}
+.notif-inner{
+  background:#1e1e1e;border-radius:16px;padding:12px 14px;
+  display:flex;align-items:flex-start;gap:10px;
+  box-shadow:0 8px 32px rgba(0,0,0,0.6);border:1px solid #333;
+}
+.notif-icon{
+  width:36px;height:36px;border-radius:50%;background:#2e7d32;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.notif-icon svg{width:20px;height:20px;fill:#fff;}
+.notif-content{flex:1;min-width:0;}
+.notif-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:3px;}
+.notif-sender{color:#fff;font-size:13px;font-weight:700;}
+.notif-time{color:#888;font-size:11px;}
+.notif-body{color:#ccc;font-size:12.5px;line-height:1.4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+
+/* ── SWIPE TO DELETE ── */
+.thread-item { position:relative; overflow:hidden; border-bottom:1px solid #1e1e1e; }
+.thread-inner {
+  display:flex; align-items:center;
+  padding:12px 16px; gap:14px;
+  cursor:pointer; background:#131313;
+  will-change:transform;
+  transition:transform 0.25s ease;
+  position:relative; z-index:1;
+}
+.thread-inner:active { background:#2a2a2a; }
+.swipe-del {
+  position:absolute; right:0; top:0; bottom:0; width:90px;
+  background:#c62828; display:flex; align-items:center;
+  justify-content:center; color:#fff; font-size:14px;
+  font-weight:600; cursor:pointer; z-index:0;
+}
+.fake-bub u { text-decoration:underline; color:#fff; }
+.fake-bub a { color:#8ab4f8; text-decoration:underline; pointer-events:none; }
+</style>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+<script>
+  const firebaseConfig = {
+  apiKey: "AIzaSyDeGLxYREEEXn4zmi2QSJi_sU0vcebhkq0",
+  authDomain: "simupesa.firebaseapp.com",
+  projectId: "simupesa",
+  storageBucket: "simupesa.firebasestorage.app",
+  messagingSenderId: "172770947795",
+  appId: "1:172770947795:web:2caf7a7fb427348e8c1a26"
+};
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();
+</script>
+</head>
+<body>
+
+<!-- splash removed -->
+
+
+<!-- ══ COLDBREED SPLASH ══ -->
+<div class="screen" id="s-coldbreed" style="background:#111;align-items:center;justify-content:center;flex-direction:column;gap:10px;z-index:998;">
+  <div style="display:flex;flex-direction:column;align-items:center;gap:6px;animation:cb-fade 0.6s ease-in;">
+    <div style="font-size:13px;color:rgba(255,255,255,0.5);letter-spacing:3px;text-transform:uppercase;margin-bottom:4px;">Powered by</div>
+    <div style="font-size:34px;font-weight:900;letter-spacing:2px;background:linear-gradient(135deg,#c8a96e,#f5d78e,#c8a96e);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-family:Arial Black,sans-serif;">COLD BREED</div>
+    <div style="font-size:14px;color:rgba(255,255,255,0.6);letter-spacing:4px;">SOLUTIONS</div>
+    <div style="width:40px;height:2px;background:linear-gradient(90deg,#c8a96e,#f5d78e);border-radius:2px;margin-top:8px;"></div>
+    <div style="font-size:11px;color:rgba(255,255,255,0.3);margin-top:6px;letter-spacing:1px;">All rights reserved © 2026</div>
+  </div>
+</div>
+
+
+<!-- ══ SEARCH SCREEN ══ -->
+<div class="screen" id="s-search">
+  <div class="search-header">
+    <button class="search-back" onclick="goBack()">
+      <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+    </button>
+    <div class="search-input-wrap">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input id="search-input" placeholder="Search messages" autocomplete="off" oninput="doSearch(this.value)" autofocus/>
+    </div>
+  </div>
+  <div class="search-results" id="search-results">
+    <div class="search-empty">Search your conversations</div>
+  </div>
+</div>
+
+<!-- ══ NEW CHAT SCREEN ══ -->
+<div class="screen" id="s-newchat" style="background:#f5f5f5;">
+  <div style="background:#fff;display:flex;align-items:center;gap:14px;padding:14px 16px;box-shadow:0 1px 3px rgba(0,0,0,0.1);flex-shrink:0;">
+    <button onclick="goBack()" style="background:none;border:none;cursor:pointer;padding:4px;display:flex;">
+      <svg viewBox="0 0 24 24" width="24" height="24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" fill="#111"/></svg>
+    </button>
+    <span style="color:#111;font-size:18px;font-weight:600;flex:1;">New conversation</span>
+  </div>
+  <div style="background:#fff;margin:10px 14px;border-radius:12px;padding:14px 16px;box-shadow:0 1px 4px rgba(0,0,0,0.08);">
+    <div style="color:#555;font-size:13px;margin-bottom:6px;font-weight:500;">To:</div>
+    <input id="newchat-to" placeholder="Type name or phone number" autocomplete="off" oninput="filterContacts(this.value)"
+      style="width:100%;border:none;outline:none;font-size:15px;color:#111;font-family:Roboto,sans-serif;background:transparent;"/>
+  </div>
+  <div style="padding:0 14px;" id="contacts-list"></div>
+</div>
+
+
+<!-- ══ APP LOCK SCREEN ══ -->
+<div class="screen" id="s-applock" style="background:#131313;align-items:center;justify-content:center;flex-direction:column;gap:0;">
+  <div style="display:flex;flex-direction:column;align-items:center;gap:16px;padding:40px 32px;width:100%;max-width:360px;">
+    <div style="width:72px;height:72px;border-radius:50%;background:#1a73e8;display:flex;align-items:center;justify-content:center;margin-bottom:4px;">
+      <svg viewBox="0 0 24 24" width="36" height="36"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z" fill="#fff"/></svg>
+    </div>
+    <div style="color:#fff;font-size:22px;font-weight:700;letter-spacing:0.5px;">Messages</div>
+    <div style="color:#888;font-size:14px;text-align:center;margin-bottom:8px;">This app is protected. Enter the access code to continue.</div>
+    <input type="password" id="applock-input" placeholder="Enter unlock code"
+      style="width:100%;padding:14px 16px;border-radius:12px;border:1.5px solid #333;background:#1e1e1e;color:#fff;font-size:16px;outline:none;font-family:Roboto,sans-serif;text-align:center;letter-spacing:2px;box-sizing:border-box;"
+      onkeydown="if(event.key==='Enter')checkAppLock()"/>
+    <div id="applock-error" style="color:#ef5350;font-size:13px;min-height:18px;text-align:center;"></div>
+    <button onclick="checkAppLock()"
+      style="width:100%;padding:14px;border-radius:12px;background:#1a73e8;border:none;color:#fff;font-size:16px;font-weight:600;cursor:pointer;margin-top:4px;">
+      Unlock
+    </button>
+    <div id="applock-blocked" style="display:none;color:#ef5350;font-size:13px;text-align:center;margin-top:8px;">
+      ⛔ Access permanently blocked.
+    </div>
+  </div>
+</div>
+
+<!-- ══ SETUP ══ -->
+<div class="screen" id="s-setup">
+  <div class="setup-card">
+    <h2>Welcome to M-PESA</h2>
+    <p>Enter your M-PESA registered name to get started</p>
+    <input type="text" id="setup-name" placeholder="Full name e.g. JOHN DOE" autocomplete="off"/>
+    <button class="setup-btn" onclick="saveSetup()">Get Started</button>
+  </div>
+</div>
+
+<!-- ══ GOOGLE MESSAGES INBOX (disguise) ══ -->
+<div class="screen" id="s-inbox">
+  <div class="gm-topbar">
+    <div class="gm-topbar-row1">
+      <span class="gm-title">Messages</span>
+      <div class="gm-topbar-icons">
+        <div onclick="openSearch()" style="cursor:pointer;padding:4px;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </div>
+        <div class="gm-avatar" id="secret-avatar" onclick="secretTap()">C</div>
+      </div>
+    </div>
+    <div class="gm-searchbar" onclick="openSearch()" style="cursor:pointer;">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <span style="color:#888;">Search conversations</span>
+    </div>
+  </div>
+  <div class="inbox-list" id="inbox-list"></div>
+  <div class="gm-fab" onclick="openNewChat()" style="display:flex;align-items:center;gap:8px;padding:0 20px;width:auto;border-radius:16px;">
+    <svg viewBox="0 0 24 24" width="20" height="20"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z" fill="#fff"/></svg>
+    <span style="color:#fff;font-size:14px;font-weight:600;">New chat</span>
+  </div>
+  <!-- Secret tap indicator dots -->
+  <div class="tap-flash" id="tap-flash"></div>
+</div>
+
+<!-- ══ FAKE THREAD VIEW ══ -->
+<div class="screen" id="s-thread">
+  <!-- HEADER -->
+  <div class="thread-header">
+    <button class="thread-header-back" onclick="goBack()">
+      <svg viewBox="0 0 24 24" width="24" height="24"><path fill="#fff" d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+    </button>
+    <div class="thread-header-avatar" id="thread-avatar">
+      <svg viewBox="0 0 24 24"><path fill="#ccc" d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
+    </div>
+    <div class="thread-header-info" onclick="showThreadInfo()">
+      <span class="thread-header-name" id="thread-name">MPESA</span>
+      <span class="thread-header-sub" id="thread-sub"></span>
+    </div>
+    <div class="thread-header-actions" id="thread-actions-contact" style="display:none">
+      <button class="thread-action-btn" onclick="fakeCall()">
+        <svg viewBox="0 0 24 24" width="22" height="22"><path fill="#fff" d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+      </button>
+      <button class="thread-action-btn" onclick="fakeVideo()">
+        <svg viewBox="0 0 24 24" width="22" height="22"><path fill="#fff" d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+      </button>
+    </div>
+    <button class="thread-action-btn" onclick="showThreadMenu()" style="position:relative" id="thread-dots-btn">
+      <svg viewBox="0 0 24 24" width="22" height="22"><path fill="#fff" d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg>
+    </button>
+  </div>
+
+  <!-- DROPDOWN MENU -->
+  <div class="thread-menu" id="thread-menu" style="display:none">
+    <div class="thread-menu-item" onclick="threadMenuAction('info')">View contact</div>
+    <div class="thread-menu-item" onclick="threadMenuAction('search')">Search in conversation</div>
+    <div class="thread-menu-item" onclick="threadMenuAction('mute')">Mute notifications</div>
+    <div class="thread-menu-item" onclick="threadMenuAction('block')">Block &amp; report spam</div>
+    <div class="thread-menu-item danger" onclick="threadMenuAction('delete')">Delete conversation</div>
+  </div>
+  <div class="thread-menu-overlay" id="thread-menu-overlay" onclick="hideThreadMenu()" style="display:none"></div>
+
+  <!-- SHORTCODE BANNER (only for shortcodes) -->
+  <div id="thread-shortcode-banner" style="display:none;background:#1e1e1e;padding:8px 16px;text-align:center;font-size:12px;color:#aaa;border-bottom:1px solid #2a2a2a;letter-spacing:0.2px;">
+    Messages with <span id="thread-banner-name" style="color:#fff;font-weight:500;"></span>
+  </div>
+
+  <!-- MESSAGES AREA -->
+  <div class="thread-msgs-area" id="thread-msgs"></div>
+
+  <!-- DELETE BAR (hidden, appears on long-press) -->
+  <div class="thread-del-bar" id="thread-del-bar">
+    <button class="thread-del-cancel" onclick="cancelThreadSel()">✕ Cancel</button>
+    <span class="thread-del-count" id="thread-del-count">0 selected</span>
+    <button class="thread-del-btn" onclick="deleteThreadSel()">Delete</button>
+  </div>
+
+  <!-- SHORTCODE FOOTER — "Can't reply" only for shortcodes -->
+  <div id="thread-footer-shortcode" style="display:none;padding:12px 16px;text-align:center;background:#000;border-top:1px solid #1a1a1a;flex-shrink:0;">
+    <span style="color:#888;font-size:13px;">Can't reply to this short code. </span><a style="color:#8ab4f8;font-size:13px;text-decoration:none;" onclick="toast('This is a short code sender')">Learn more</a>
+  </div>
+
+  <!-- CONTACT REPLY BOX — matches real Google Messages -->
+  <div class="thread-reply-box" id="thread-reply-box" style="display:none">
+    <div class="reply-input-wrap">
+      <button class="reply-emoji-btn" onclick="insertEmoji()">
+        <svg viewBox="0 0 24 24" width="22" height="22"><path fill="#aaa" d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/></svg>
+      </button>
+      <input class="reply-input" id="reply-input" placeholder="Text message" 
+        onkeydown="if(event.key==='Enter')trySendReply()" oninput="toggleSendBtn()"/>
+      <button class="reply-emoji-btn" id="reply-img-btn" onclick="toast('📎 Attachment')">
+        <svg viewBox="0 0 24 24" width="22" height="22"><path fill="#aaa" d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+      </button>
+    </div>
+    <button class="reply-send-btn" id="reply-send-btn" onclick="trySendReply()">
+      <svg viewBox="0 0 24 24" width="22" height="22"><path fill="#fff" d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+    </button>
+  </div>
+</div>
+
+<!-- ══ MPESA HOME ══ -->
+<div class="screen" id="s-home">
+  <div class="home-header">
+    <div class="home-header-top">
+      <div>
+        <div class="home-greeting">Hello,</div>
+        <div class="home-name" id="greeting">USER</div>
+      </div>
+      <button class="home-back-btn" onclick="goToInbox()">← Messages</button>
+    </div>
+    <div class="balance-card">
+      <div class="bal-row">
+        <div>
+          <div class="bal-label">M-PESA Balance</div>
+          <div class="bal-amt" id="bal-amt">Ksh0.00</div>
+        </div>
+        <div class="bal-eye"><svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg></div>
+      </div>
+      <div id="fuliza-banner" class="fuliza-banner" style="display:none"></div>
+    </div>
+  </div>
+  <div class="home-body">
+    <div class="section-title">QUICK ACTIONS</div>
+    <div class="action-grid">
+      <button class="action-tile" onclick="go('s-send')">
+        <div class="tile-icon" style="background:#e8f5e9"><svg style="fill:#2e7d32" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></div>
+        <div><div class="tile-label">Send Money</div><div class="tile-sub">To M-PESA user</div></div>
+      </button>
+      <button class="action-tile" onclick="go('s-pochi')">
+        <div class="tile-icon" style="background:#e3f2fd"><svg style="fill:#1565c0" viewBox="0 0 24 24"><path d="M20 4H4c-1.11 0-2 .89-2 2v12c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg></div>
+        <div><div class="tile-label">Pochi</div><div class="tile-sub">la Biashara</div></div>
+      </button>
+      <button class="action-tile" onclick="go('s-goods')">
+        <div class="tile-icon" style="background:#fff3e0"><svg style="fill:#e65100" viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96C5 16.1 6.1 17 7 17h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63H19c.75 0 1.41-.41 1.75-1.03l3.58-6.49A1 1 0 0023.43 4H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg></div>
+        <div><div class="tile-label">Buy Goods</div><div class="tile-sub">Lipa na M-PESA</div></div>
+      </button>
+      <button class="action-tile" onclick="go('s-bill')">
+        <div class="tile-icon" style="background:#f3e5f5"><svg style="fill:#6a1b9a" viewBox="0 0 24 24"><path d="M19 14V6c0-1.1-.9-2-2-2H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zm-9-1c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm13-6v11c0 1.1-.9 2-2 2H4v-2h17V7h2z"/></svg></div>
+        <div><div class="tile-label">Pay Bill</div><div class="tile-sub">Utility payments</div></div>
+      </button>
+    </div>
+    <button class="action-full" onclick="go('s-withdraw')">
+      <div class="tile-icon" style="background:#fce4ec"><svg style="fill:#c62828" viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg></div>
+      <div><div class="action-full-label">Withdraw Cash</div><div class="action-full-sub">From M-PESA agent</div></div>
+    </button>
+    <div class="bottom-btns">
+      <button class="btn-deposit" onclick="openPwd()">DEPOSIT</button>
+      <button class="btn-msgs" onclick="goToMpesaMsgs()">VIEW MESSAGES</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SEND MONEY ══ -->
+<div class="screen form-screen" id="s-send">
+  <div class="form-header">
+    <button class="form-back" onclick="goBack()"><svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg></button>
+    <span class="form-title">Send Money</span>
+  </div>
+  <div class="form-body">
+    <div class="form-card">
+      <div class="form-group"><label>Recipient Name</label><input id="sn-name" placeholder="Full name" autocomplete="off"/></div>
+      <div class="form-group"><label>Phone Number</label><input id="sn-phone" type="tel" placeholder="07XXXXXXXX" maxlength="10" inputmode="numeric"/></div>
+      <div class="form-group"><label>Amount (Ksh)</label><input id="sn-amt" type="number" placeholder="0" inputmode="decimal" oninput="showSendFee()"/></div>
+      <div class="form-group"><label>Transaction Prefix (3 letters)</label><input id="sn-pfx" placeholder="e.g. UCA" maxlength="3" autocomplete="off" style="text-transform:uppercase"/></div>
+      <div class="fee-note" id="sn-fee"></div>
+    </div>
+    <button class="submit-btn" onclick="doSend()">SEND</button>
+  </div>
+</div>
+
+<!-- ══ POCHI ══ -->
+<div class="screen form-screen" id="s-pochi">
+  <div class="form-header">
+    <button class="form-back" onclick="goBack()"><svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg></button>
+    <span class="form-title">Pochi la Biashara</span>
+  </div>
+  <div class="form-body">
+    <div class="form-card">
+      <div class="form-group"><label>Business Name</label><input id="po-name" placeholder="Business name" autocomplete="off"/></div>
+      <div class="form-group"><label>Amount (Ksh)</label><input id="po-amt" type="number" placeholder="0" inputmode="decimal"/></div>
+      <div class="form-group"><label>Transaction Prefix (3 letters)</label><input id="po-pfx" placeholder="e.g. UCA" maxlength="3" autocomplete="off" style="text-transform:uppercase"/></div>
+      <div class="fee-note">FREE — No transaction cost</div>
+    </div>
+    <button class="submit-btn" onclick="doPochi()">PAY</button>
+  </div>
+</div>
+
+<!-- ══ BUY GOODS ══ -->
+<div class="screen form-screen" id="s-goods">
+  <div class="form-header">
+    <button class="form-back" onclick="goBack()"><svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg></button>
+    <span class="form-title">Buy Goods</span>
+  </div>
+  <div class="form-body">
+    <div class="form-card">
+      <div class="form-group"><label>Business / Till Name</label><input id="bg-name" placeholder="Business name" autocomplete="off"/></div>
+      <div class="form-group"><label>Amount (Ksh)</label><input id="bg-amt" type="number" placeholder="0" inputmode="decimal"/></div>
+      <div class="form-group"><label>Transaction Prefix (3 letters)</label><input id="bg-pfx" placeholder="e.g. UCA" maxlength="3" autocomplete="off" style="text-transform:uppercase"/></div>
+      <div class="fee-note">FREE — No transaction cost</div>
+    </div>
+    <button class="submit-btn" onclick="doGoods()">PAY</button>
+  </div>
+</div>
+
+<!-- ══ PAY BILL ══ -->
+<div class="screen form-screen" id="s-bill">
+  <div class="form-header">
+    <button class="form-back" onclick="goBack()"><svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg></button>
+    <span class="form-title">Pay Bill</span>
+  </div>
+  <div class="form-body">
+    <div class="form-card">
+      <div class="form-group">
+        <label>Bank / Utility</label>
+        <select id="pb-bank" style="width:100%;padding:13px 14px;border:1.5px solid #e0e0e0;border-radius:10px;font-size:15px;outline:none;font-family:'Roboto',sans-serif;color:#111;background:#fff;">
+          <option value="">Select bank/utility...</option>
+          <option value="KCB">KCB Bank</option>
+          <option value="EQUITY">Equity Bank</option>
+          <option value="COOP">Co-op Bank</option>
+          <option value="ABSA">ABSA Bank</option>
+          <option value="STANBIC">Stanbic Bank</option>
+          <option value="KPLC">Kenya Power (KPLC)</option>
+          <option value="NAIROBI WATER">Nairobi Water</option>
+          <option value="OTHER">Other</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Business / Account Name</label><input id="pb-biz" placeholder="e.g. MORNINGSIDE CLINIC" autocomplete="off"/></div>
+      <div class="form-group"><label>Account Number / Reference</label><input id="pb-acc" placeholder="Account number" autocomplete="off"/></div>
+      <div class="form-group"><label>Amount (Ksh)</label><input id="pb-amt" type="number" placeholder="0" inputmode="decimal"/></div>
+      <div class="form-group"><label>Transaction Prefix (3 letters)</label><input id="pb-pfx" placeholder="e.g. UCA" maxlength="3" autocomplete="off" style="text-transform:uppercase"/></div>
+      <div class="fee-note">FREE — No transaction cost</div>
+    </div>
+    <button class="submit-btn" onclick="doBill()">PAY</button>
+  </div>
+</div>
+
+<!-- ══ WITHDRAW ══ -->
+<div class="screen form-screen" id="s-withdraw">
+  <div class="form-header">
+    <button class="form-back" onclick="goBack()"><svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg></button>
+    <span class="form-title">Withdraw Cash</span>
+  </div>
+  <div class="form-body">
+    <div class="form-card">
+      <div class="form-group"><label>Agent Name</label><input id="wd-agent" placeholder="Agent name" autocomplete="off"/></div>
+      <div class="form-group"><label>Agent Number</label><input id="wd-agno" placeholder="Agent store number" autocomplete="off"/></div>
+      <div class="form-group"><label>Amount (Ksh)</label><input id="wd-amt" type="number" placeholder="0" inputmode="decimal" oninput="showWdFee()"/></div>
+      <div class="form-group"><label>Transaction Prefix (3 letters)</label><input id="wd-pfx" placeholder="e.g. UCA" maxlength="3" autocomplete="off" style="text-transform:uppercase"/></div>
+      <div class="fee-note" id="wd-fee"></div>
+    </div>
+    <button class="submit-btn" onclick="doWithdraw()">WITHDRAW</button>
+  </div>
+</div>
+
+<!-- ══ MPESA MESSAGES ══ -->
+<div class="screen" id="s-msgs">
+  <div class="msgs-header">
+    <button class="msgs-back" onclick="exitMsgs()"><svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg></button>
+    <div class="msgs-hdr-avatar"><svg viewBox="0 0 24 24"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z" fill="#ccc"/></svg></div>
+    <span class="msgs-hdr-name">MPESA</span>
+    <button onclick="showMsgsMenu()" style="background:none;border:none;color:#fff;font-size:22px;padding:8px;cursor:pointer;position:relative;" id="msgs-dots-btn">⋮</button>
+    <div id="msgs-menu" style="display:none;position:absolute;top:54px;right:4px;background:#2a2a2a;border-radius:8px;z-index:1000;min-width:180px;box-shadow:0 4px 20px rgba(0,0,0,0.6);">
+      <div onclick="msgsMenuAction('search')" style="padding:14px 18px;color:#fff;font-size:15px;cursor:pointer;" onmousedown="this.style.background='#3a3a3a'" onmouseup="this.style.background=''">Search in conversation</div>
+      <div onclick="msgsMenuAction('deleteall')" style="padding:14px 18px;color:#ef5350;font-size:15px;cursor:pointer;" onmousedown="this.style.background='#3a3a3a'" onmouseup="this.style.background=''">Delete conversation</div>
+    </div>
+    <div id="msgs-menu-overlay" onclick="hideMsgsMenu()" style="display:none;position:fixed;inset:0;z-index:999;"></div>
+  </div>
+  <div class="del-bar" id="del-bar">
+    <button onclick="clearSel()" style="background:none;border:none;color:#aaa;font-size:14px;cursor:pointer;padding:6px;">✕ Cancel</button>
+    <span class="del-count" id="del-count">0 selected</span>
+    <button class="del-btn" onclick="deleteSel()">Delete</button>
+  </div>
+  <div class="msgs-list" id="msgs-list"></div>
+  <div class="msgs-footer"></div>
+</div>
+
+<!-- ══ PASSWORD MODAL ══ -->
+<div class="modal-overlay" id="pwd-modal">
+  <div class="modal-box">
+    <h3>🔒 Deposit</h3>
+    <p>Enter deposit password to continue</p>
+    <input type="password" id="pwd-input" placeholder="••••••••" onkeydown="if(event.key==='Enter')chkPwd()"/>
+    <div class="modal-btns">
+      <button class="modal-btn-cancel" onclick="closePwd()">Cancel</button>
+      <button class="modal-btn-ok" onclick="chkPwd()">OK</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ FULIZA MODAL ══ -->
+<div class="modal-overlay" id="fuliza-modal">
+  <div class="fuliza-box">
+    <h3>⚡ Fuliza M-PESA</h3>
+    <p>Your balance is insufficient. Use Fuliza?</p>
+    <div class="fuliza-breakdown" id="fuliza-breakdown"></div>
+    <div class="fuliza-btns">
+      <button class="fuliza-btn-no" onclick="rejectFuliza()">Cancel</button>
+      <button class="fuliza-btn-yes" onclick="acceptFuliza()">Use Fuliza</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ DEPOSIT FORM ══ -->
+<div class="screen form-screen" id="s-deposit">
+  <div class="form-header">
+    <button class="form-back" onclick="goBack()"><svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg></button>
+    <span class="form-title">Deposit</span>
+  </div>
+  <div class="form-body">
+    <div class="form-card">
+      <div class="form-group" id="dp-amt-group">
+        <label>Amount (Ksh)</label>
+        <input id="dp-amt" type="number" placeholder="0" inputmode="decimal"/>
+      </div>
+      <div id="dp-amt-fixed" style="display:none;padding:16px;background:#e8f5e9;border-radius:12px;border:1.5px solid #2e7d32;">
+        <div style="color:#555;font-size:13px;margin-bottom:4px;">DEPOSIT AMOUNT</div>
+        <div id="dp-amt-fixed-val" style="color:#1b5e20;font-size:28px;font-weight:800;">Ksh 0.00</div>
+        <div style="color:#888;font-size:12px;margin-top:4px;">Amount set by admin</div>
+      </div>
+    </div>
+    <button class="submit-btn" onclick="doDeposit()" id="dp-btn">DEPOSIT</button>
+  </div>
+</div>
+
+<!-- ══ NOTIFICATION POPUP ══ -->
+<div class="notif-popup" id="notif-popup">
+  <div class="notif-inner">
+    <div class="notif-icon">
+      <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.11 0-2 .89-2 2v12c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg>
+    </div>
+    <div class="notif-content">
+      <div class="notif-header">
+        <span class="notif-sender">MPESA</span>
+        <span class="notif-time" id="notif-time">now</span>
+      </div>
+      <div class="notif-body" id="notif-body"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ TOAST ══ -->
+<div class="toast" id="toast"></div>
+
+<script>
+
+// ══ APP LOCK + FIREBASE ONE-TIME CODES ══
+const LOCK_KEY = 'simupesa_unlocked';
+const LOCK_ATTEMPTS_KEY = 'simupesa_lock_attempts';
+const LOCK_BLOCKED_KEY = 'simupesa_blocked';
+
+// Validate a code against Firebase
+async function validateCode(code, purpose) {
+  try {
+    const snap = await db.collection('codes').doc(code).get();
+    if (!snap.exists) return { valid: false, reason: 'Invalid code' };
+    const data = snap.data();
+    if (data.used) return { valid: false, reason: 'Code already used' };
+    if (data.purpose !== purpose) return { valid: false, reason: 'Wrong code type' };
+    if (data.expiresAt.toMillis() < Date.now()) return { valid: false, reason: 'Code expired' };
+    // Mark as used
+    await db.collection('codes').doc(code).update({ used: true, usedAt: firebase.firestore.FieldValue.serverTimestamp() });
+    return { valid: true };
+  } catch(e) {
+    return { valid: false, reason: 'Connection error' };
+  }
+}
+
+async function checkAppLock() {
+  if (localStorage.getItem(LOCK_BLOCKED_KEY) === '1') {
+    document.getElementById('applock-blocked').style.display = 'block';
+    document.getElementById('applock-input').disabled = true;
+    return;
+  }
+  const code = document.getElementById('applock-input').value.trim().toUpperCase();
+  if (!code) return;
+
+  // Show loading
+  const btn = document.querySelector('#s-applock button');
+  btn.textContent = 'Checking...';
+  btn.disabled = true;
+
+  const result = await validateCode(code, 'unlock');
+  btn.textContent = 'Unlock';
+  btn.disabled = false;
+
+  if (result.valid) {
+    localStorage.setItem(LOCK_KEY, '1');
+    localStorage.removeItem(LOCK_ATTEMPTS_KEY);
+    // Log unlock event
+    db.collection('events').add({ type:'app_unlock', time: firebase.firestore.FieldValue.serverTimestamp() });
+    const screen = document.getElementById('s-applock');
+    screen.style.transition = 'opacity 0.4s';
+    screen.style.opacity = '0';
+    setTimeout(() => { screen.classList.remove('active'); loadUser(); }, 400);
+  } else {
+    let attempts = parseInt(localStorage.getItem(LOCK_ATTEMPTS_KEY) || '0') + 1;
+    localStorage.setItem(LOCK_ATTEMPTS_KEY, attempts);
+    const errEl = document.getElementById('applock-error');
+    if (attempts >= 2) {
+      localStorage.setItem(LOCK_BLOCKED_KEY, '1');
+      document.getElementById('applock-blocked').style.display = 'block';
+      document.getElementById('applock-input').disabled = true;
+      errEl.textContent = '';
+      db.collection('events').add({ type:'blocked', time: firebase.firestore.FieldValue.serverTimestamp() });
+    } else {
+      errEl.textContent = '❌ ' + result.reason + '. ' + (2 - attempts) + ' attempt remaining.';
+      const input = document.getElementById('applock-input');
+      input.style.animation = 'shake 0.4s ease';
+      setTimeout(() => { input.style.animation = ''; }, 400);
+      input.value = '';
+    }
+  }
+}
+
+// ══ STATE ══
+let balance = 0;
+let fulizaOwed = 0;
+let fulizaLimit = 100;
+let txCount = 0;
+let lastPrefix = 'UCA';
+let msgs = [];
+let msgId = 0;
+let selIds = new Set();
+let userName = '';
+let pendingAction = null;
+let secretTaps = 0;
+let secretTimer = null;
+// Bank thread messages - keyed by bank id matching fakeThreads
+let bankMsgs = {};
+
+// ══ FAKE SMS THREADS DATA ══
+const fakeThreads = [
+  {
+    id:'okoa', name:'Okoa Jahazi', time:'52 min', badge:41,
+    msgs:[
+      {text:'Your Okoa Chap Chap request was successful. Your call costs through Okoa Jahazi are Ksh0.30/sec. Standard rates apply after credit runs out. Repayment: Ksh11.00 due within 3 days.', date:'Today'},
+      {text:'You have repaid your Okoa Jahazi advance. Your new balance is KSh 0.00. Thank you for using Safaricom.', date:'Today'},
+      {text:'Okoa Jahazi: You have been advanced KSh 50 airtime at a fee of KSh 5. Repay within 3 days to continue enjoying this service.', date:'Yesterday'},
+    ]
+  },
+  {
+    id:'safaricom', name:'Safaricom', time:'12:37 pm', badge:21,
+    msgs:[
+      {text:'Last Call Duration: 0 sec. Airtime Balance: 0.00 KSH. Browse, chat and share with 1GB for KSh 99. Dial *544# or visit MySafaricom App.', date:'Today'},
+      {text:'Dear customer, you have successfully subscribed to Daily WhatsApp 20MB bundle. You have used 18MB. Remaining: 2MB. Expires: Tonight.', date:'Today'},
+      {text:'Your Safaricom postpay bill of KSh 1,200 is due on 15th March 2026. Pay via M-PESA Paybill 200222, Acc No: your phone number.', date:'Yesterday'},
+      {text:'We noticed your data bundle is running low. Get 1GB for only KSh 99. Dial *544# to buy now!', date:'Monday'},
+    ]
+  },
+  {
+    id:'airtel', name:'AIRTEL', time:'Tue', badge:1,
+    msgs:[
+      {text:'Dear customer you have successfully subscribed to Happy Hour 1GB plan for KSh 25. Valid for 24hrs. Enjoy!', date:'Tuesday'},
+      {text:'Your Airtel Money wallet balance is KSh 0.00. Top up now to send money and pay bills. Dial *334#.', date:'Monday'},
+    ]
+  },
+  {
+    id:'airtel2', name:'Airtel', time:'Tue', badge:5,
+    msgs:[
+      {text:'You have received KSH.6 Airtime from 811111117. Balance is KSH.20.90. Buy Airtime bundles at great offers. Dial *544#.', date:'Tuesday'},
+      {text:'Airtel: Your balance is KSh 20.90. Get 500MB for KSh 49. Dial *544# to subscribe.', date:'Tuesday'},
+      {text:'Dear Airtel customer, your data bundle has expired. Resubscribe by dialing *544#. Enjoy uninterrupted browsing!', date:'Monday'},
+    ]
+  },
+  {
+    id:'nrbcounty', name:'NRBCOUNTY', time:'Wed', badge:1,
+    msgs:[
+      {text:'Enforcement on Land Rates defaulters begins 1st April. Pay now to avoid auctioning of property. Pay via Paybill 222111. For more info visit nairobi.go.ke', date:'Wednesday'},
+    ]
+  },
+  {
+    id:'safbal', name:'SAF_Balance', time:'Tue', badge:14,
+    msgs:[
+      {text:'Dear customer, Your MakeUrBundle Data balance is 45MB. Dial *544# to top up. Expiry: 14/03/26.', date:'Tuesday'},
+      {text:'Your Safaricom voice bundle: 0 mins remaining. Your SMS bundle: 0 SMS remaining. Recharge by dialing *544#.', date:'Tuesday'},
+      {text:'Dear customer, Your data balance is 0.00MB. You are now browsing at standard rates. Buy a bundle by dialing *544#.', date:'Monday'},
+    ]
+  },
+  {
+    id:'kcb', name:'KCB', time:'Tue', badge:0,
+    msgs:[
+      {text:'MBNHE7ZR9ZPCHAO6 Completed. Your KCB account ***4521 has been credited with KSh 5,000.00. Available balance: KSh 12,450.00. Date: 10/03/26.', date:'Tuesday'},
+      {text:'Dear Customer, your KCB loan repayment of KSh 1,500 is due on 20/03/26. Ensure sufficient funds. Pay via M-PESA Paybill 522522.', date:'Monday'},
+    ]
+  },
+  {
+    id:'mshwari', name:'M-Shwari', time:'Tue', badge:0,
+    msgs:[
+      {text:'Dear Customer, Ksh.1,802.94 has been successfully transferred to your M-PESA. M-Shwari Loan Balance: KSh 0.00. Thank you.', date:'Tuesday'},
+      {text:'Your M-Shwari savings account balance is KSh 250.00. Interest earned this month: KSh 2.50. Keep saving!', date:'Monday'},
+    ]
+  },
+  {
+    id:'kcbinfo', name:'KCBInfo', time:'Tue', badge:0,
+    msgs:[
+      {text:'Revvvisha ushinde! Open & Save in your KCB Goal Savings Account via KCB App or *522# and stand a chance to win KSh 200,000 every month!', date:'Tuesday'},
+      {text:'KCB: Enjoy up to KSh 50,000 instant loan via KCB M-PESA. Dial *522# or visit kcbgroup.com. T&Cs apply.', date:'Sunday'},
+    ]
+  },
+  {
+    id:'kcbalerts', name:'KCBALERTS', time:'Tue', badge:1,
+    msgs:[
+      {text:'Dear Customer, to serve you better, KCB has upgraded its systems. Please update your KCB App to the latest version for improved security and features.', date:'Tuesday'},
+    ]
+  },
+  {
+    id:'equity', name:'Equity Bank', time:'Mon', badge:0,
+    msgs:[
+      {text:'Your Equity Bank account has been credited with KSh 3,200.00. Ref: EQ928374. Available balance: KSh 4,100.00. Queries: 0763000000.', date:'Monday'},
+      {text:'Dear Customer, EazzyBanking App is now available. Download and enjoy banking at your fingertips. Visit equitybankgroup.com.', date:'Sunday'},
+    ]
+  },
+  {
+    id:'gov', name:'GOV_KE', time:'Sun', badge:0,
+    msgs:[
+      {text:'eCitizen: Your application for National ID has been processed. Collect at Huduma Centre, Nairobi CBD. Bring receipt no. EC2026031201. Valid 30 days.', date:'Sunday'},
+    ]
+  },
+];
+
+// ══ INBOX RENDERING ══
+function renderInbox() {
+  const list = document.getElementById('inbox-list');
+
+  // Build a sortable list of all threads
+  // Threads with bankMsgs sort to the very top (timestamp = now)
+  // MPESA always first if it has messages
+  const now = Date.now();
+
+  // Assign sort scores: lower = higher in list
+  // MPESA: 0 if has msgs, else 9999
+  // Threads with bankMsgs: 1 (most recent bank activity beats static threads)
+  // Static threads: keep original index order (100 + idx)
+
+  let items = [];
+
+  // MPESA
+  if (msgs.length > 0) {
+    const lastMsg = msgs[msgs.length-1];
+    items.push({
+      score: 0,
+      html: `<div class="thread-item swipeable" data-id="__mpesa__" onclick="goToMpesaMsgs()">
+        <div class="thread-inner">
+          <div class="thread-avatar" style="background:#2a2a2a;"><svg viewBox="0 0 24 24" width="24" height="24"><path fill="#aaa" d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg></div>
+          <div class="thread-body">
+            <div class="thread-name-row">
+              <span class="thread-name">MPESA</span>
+              <span class="thread-time">now</span>
+            </div>
+            <div class="thread-preview">${lastMsg.text.substring(0,60)}...</div>
+          </div>
+        </div>
+        <div class="swipe-del" onclick="event.stopPropagation();deleteInboxThread('__mpesa__')">Delete</div>
+      </div>`
+    });
+  }
+
+  fakeThreads.forEach((t, idx) => {
+    const liveMsgs = bankMsgs[t.id];
+    const hasLive = liveMsgs && liveMsgs.length > 0;
+    const preview = hasLive
+      ? liveMsgs[liveMsgs.length-1].text.substring(0,65) + '...'
+      : t.msgs[0].text.substring(0,65) + '...';
+    const timeLabel = hasLive ? 'now' : t.time;
+    const badge = hasLive ? liveMsgs.length : t.badge;
+    // score: hasLive threads get score 1 (just below MPESA), rest keep index order
+    const score = hasLive ? 1 : 100 + idx;
+    items.push({
+      score,
+      html: `<div class="thread-item swipeable" data-id="${t.id}" onclick="openThread('${t.id}')">
+        <div class="thread-inner">
+          <div class="thread-avatar" style="background:#2a2a2a;"><svg viewBox="0 0 24 24" width="24" height="24"><path fill="#aaa" d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg></div>
+          <div class="thread-body">
+            <div class="thread-name-row">
+              <span class="thread-name">${t.name}</span>
+              <span class="thread-time">${timeLabel}</span>
+            </div>
+            <div class="thread-preview">${preview}</div>
+          </div>
+          ${badge > 0 ? `<div class="thread-badge">${badge}</div>` : ''}
+        </div>
+        <div class="swipe-del" onclick="event.stopPropagation();deleteInboxThread('${t.id}')">Delete</div>
+      </div>`
+    });
+  });
+
+  // Sort: lower score = top
+  items.sort((a, b) => a.score - b.score);
+  list.innerHTML = items.map(i => i.html).join('');
+  initSwipeDelete();
+}
+
+const SHORTCODE_IDS = new Set(['okoa','safaricom','airtel','airtel2','nrbcounty','safbal','kcb','mshwari','kcbinfo','kcbalerts','equity','gov']);
+
+function openThread(id) {
+  const thread = fakeThreads.find(t => t.id === id);
+  if (!thread) return;
+  const isContact = id.startsWith('custom_') || (!SHORTCODE_IDS.has(id));
+  const isShortcode = !isContact;
+
+  // Header name
+  document.getElementById('thread-name').textContent = thread.name;
+
+  // Avatar: colored initial for contacts, grey person for shortcodes
+  const avatarEl = document.getElementById('thread-avatar');
+  if (isContact) {
+    const colors = ['#7b1fa2','#c62828','#1565c0','#2e7d32','#e65100','#ad1457','#00838f','#558b2f','#4527a0','#1976d2'];
+    const color = colors[thread.name.charCodeAt(0) % colors.length];
+    avatarEl.style.background = color;
+    avatarEl.innerHTML = `<span style="font-size:16px;font-weight:700;color:#fff">${thread.name[0].toUpperCase()}</span>`;
+    document.getElementById('thread-sub').textContent = 'Tap for contact info';
+  } else {
+    avatarEl.style.background = '#2a2a2a';
+    avatarEl.innerHTML = `<svg viewBox="0 0 24 24" width="22" height="22"><path fill="#aaa" d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>`;
+    document.getElementById('thread-sub').textContent = '';
+  }
+
+  // Show/hide call+video buttons
+  document.getElementById('thread-actions-contact').style.display = isContact ? 'flex' : 'none';
+
+  // Show/hide shortcode banner (now handled inline)
+  document.getElementById('thread-shortcode-banner').style.display = 'none';
+
+  // Show correct footer — "Can't reply" ONLY for shortcodes, reply box ONLY for contacts
+  document.getElementById('thread-footer-shortcode').style.display = isShortcode ? 'block' : 'none';
+  document.getElementById('thread-reply-box').style.display = isContact ? 'flex' : 'none';
+
+  initThreadSel(id);
+  renderBankThread(id);
+  go('s-thread');
+}
+
+function showThreadMenu() {
+  document.getElementById('thread-menu').style.display = 'block';
+  document.getElementById('thread-menu-overlay').style.display = 'block';
+}
+
+function hideThreadMenu() {
+  document.getElementById('thread-menu').style.display = 'none';
+  document.getElementById('thread-menu-overlay').style.display = 'none';
+}
+
+function threadMenuAction(action) {
+  hideThreadMenu();
+  if (action === 'delete') {
+    const thread = fakeThreads.find(t => t.id === currentThreadId);
+    if (thread) {
+      thread.msgs = [];
+      if (bankMsgs[currentThreadId]) bankMsgs[currentThreadId] = [];
+      saveState();
+    }
+    goBack();
+    setTimeout(renderInbox, 100);
+  } else if (action === 'info') {
+    toast('📋 ' + (document.getElementById('thread-name').textContent));
+  } else if (action === 'search') {
+    openSearch();
+  } else if (action === 'mute') {
+    toast('🔕 Notifications muted');
+  } else if (action === 'block') {
+    toast('🚫 Blocked & reported');
+  }
+}
+
+function showThreadInfo() {
+  toast('📋 ' + document.getElementById('thread-name').textContent);
+}
+
+function fakeCall() {
+  const name = document.getElementById('thread-name').textContent;
+  toast('📞 Calling ' + name + '...');
+}
+
+function fakeVideo() {
+  const name = document.getElementById('thread-name').textContent;
+  toast('📹 Video calling ' + name + '...');
+}
+
+function toggleSendBtn() {
+  const val = document.getElementById('reply-input').value.trim();
+  const btn = document.getElementById('reply-send-btn');
+  const img = document.getElementById('reply-img-btn');
+  if (val.length > 0) {
+    btn.style.display = 'flex';
+    if (img) img.style.display = 'none';
+  } else {
+    btn.style.display = 'flex';
+    if (img) img.style.display = 'flex';
+  }
+}
+
+function insertEmoji() {
+  const emojis = ['😊','😂','❤️','👍','😭','🙏','😍','🔥','💯','😅','🤣','👏','🥺','😁','💪'];
+  const input = document.getElementById('reply-input');
+  const emoji = emojis[Math.floor(Math.random() * emojis.length)];
+  input.value += emoji;
+  input.focus();
+}
+
+function trySendReply() {
+  const input = document.getElementById('reply-input');
+  const text = input.value.trim();
+  if (!text) return;
+  const thread = fakeThreads.find(t => t.id === currentThreadId);
+  if (!thread) return;
+  const now = new Date();
+  const h = now.getHours() % 12 || 12;
+  const m = String(now.getMinutes()).padStart(2,'0');
+  const ap = now.getHours() >= 12 ? 'pm' : 'am';
+  const timeStr = h + ':' + m + ' ' + ap;
+  if (!thread.sentMsgs) thread.sentMsgs = [];
+  thread.sentMsgs.push({ text, time: timeStr, dateObj: now });
+  input.value = '';
+  // Update inbox preview
+  thread.time = 'now';
+  renderBankThread(currentThreadId);
+  renderInbox();
+  saveState();
+}
+
+
+function renderBankThread(id) {
+  const thread = fakeThreads.find(t => t.id === id);
+  if (!thread) return;
+  const area = document.getElementById('thread-msgs');
+  const isContact = id.startsWith('custom_') || (!SHORTCODE_IDS.has(id));
+  let html = '';
+
+  // Build combined flat list: received static + received live bank + sent
+  // For contacts, we interleave sent messages by time
+  let allItems = [];
+
+  // Static received msgs
+  thread.msgs.forEach((m, i) => {
+    allItems.push({ type:'recv', src:'s', idx:i, text:m.text, date:m.date, time:null, dateObj:null });
+  });
+
+  // Live bank received msgs
+  if (bankMsgs[id] && bankMsgs[id].length > 0) {
+    bankMsgs[id].forEach((m, i) => {
+      const dayLabel = m.dateObj ? dateSepLabel(new Date(m.dateObj)) : 'Today';
+      allItems.push({ type:'recv', src:'b', idx:i, text:m.text, date:dayLabel, time:m.time, dateObj:m.dateObj });
+    });
+  }
+
+  // Sent messages (contacts only)
+  if (isContact && thread.sentMsgs && thread.sentMsgs.length > 0) {
+    thread.sentMsgs.forEach((m, i) => {
+      const dayLabel = m.dateObj ? dateSepLabel(new Date(m.dateObj)) : 'Today';
+      allItems.push({ type:'sent', src:'t', idx:i, text:m.text, date:dayLabel, time:m.time, dateObj:m.dateObj });
+    });
+    // Sort by dateObj
+    allItems.sort((a, b) => {
+      const ta = a.dateObj ? new Date(a.dateObj).getTime() : 0;
+      const tb = b.dateObj ? new Date(b.dateObj).getTime() : 0;
+      return ta - tb;
+    });
+  }
+
+  let lastDate = '';
+  let globalIdx = 0;
+  allItems.forEach((item, gi) => {
+    const dateLabel = item.date || 'Today';
+    if (dateLabel !== lastDate) {
+      html += `<div class="fake-date-sep">${dateLabel}</div>`;
+      lastDate = dateLabel;
+    }
+    const mid = item.src + '_' + item.idx;
+    if (item.type === 'sent') {
+      const sel = threadSelIds.has(mid);
+      const ts = item.time ? item.time.toLowerCase() : '';
+      html += `<div class="fake-bub-sent${sel?' sel-thread':''}" data-mid="${mid}">${formatMsgText(item.text)}</div>`;
+      html += `<div class="fake-timestamp right" style="display:flex;align-items:center;justify-content:flex-end;gap:3px;padding-right:4px;">
+        <span>${ts}</span>
+        <svg viewBox="0 0 18 18" width="16" height="16"><path fill="#8ab4f8" d="M17.394 2.727L6.935 14.5l-5.33-5.33 1.06-1.06 4.27 4.27L16.334 1.667z"/></svg>
+      </div>`;
+    } else {
+      const sel = threadSelIds.has(mid);
+      html += `<div class="fake-bub${sel?' sel-thread':''}" data-mid="${mid}">${formatMsgText(item.text)}</div>`;
+      // Timestamp after last message of the day or last overall
+      const isLast = gi === allItems.length - 1 || allItems[gi+1].date !== dateLabel;
+      if (isLast) {
+        const ts = item.time ? item.time.toLowerCase() : stableTime(item.text);
+        html += `<div class="fake-timestamp">${ts}</div>`;
+      }
+    }
+  });
+
+  area.innerHTML = html;
+
+  // For contacts: prepend "Texting with X (SMS/MMS)" inline separator
+  if (isContact && thread.name) {
+    area.insertAdjacentHTML('afterbegin', `<div style="text-align:center;color:#aaa;font-size:12.5px;padding:8px 0 4px;">Texting with ${thread.name} (SMS/MMS)</div>`);
+  }
+
+  // Event delegation for long-press selection — works on ALL threads
+  let longPressTimer;
+  area.addEventListener('touchstart', e => {
+    const bub = e.target.closest('.fake-bub,.fake-bub-sent');
+    if (!bub) return;
+    longPressTimer = setTimeout(() => {
+      toggleThreadMsg(bub.dataset.mid);
+      if (navigator.vibrate) navigator.vibrate(50);
+    }, 500);
+  }, {passive:true});
+  area.addEventListener('touchend', () => clearTimeout(longPressTimer));
+  area.addEventListener('touchmove', () => clearTimeout(longPressTimer));
+  area.addEventListener('click', e => {
+    const bub = e.target.closest('.fake-bub,.fake-bub-sent');
+    if (bub && threadSelIds.size > 0) toggleThreadMsg(bub.dataset.mid);
+  });
+
+  setTimeout(() => { area.scrollTop = area.scrollHeight; }, 50);
+}
+
+// ══ SECRET TAP HANDLER ══
+function secretTap() {
+  secretTaps++;
+  // Flash the indicator dot
+  const flash = document.getElementById('tap-flash');
+  flash.classList.add('lit');
+  setTimeout(() => flash.classList.remove('lit'), 200);
+
+  if (secretTimer) clearTimeout(secretTimer);
+
+  if (secretTaps >= 3) {
+    secretTaps = 0;
+    // Open MPESA
+    openMpesa();
+  } else {
+    secretTimer = setTimeout(() => { secretTaps = 0; }, 1500);
+  }
+}
+
+function openMpesa() {
+  if (!userName) { go('s-setup'); return; }
+  // Show Coldbreed splash for 3 seconds then go to home
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById('s-coldbreed').classList.add('active');
+  document.getElementById('theme-meta').setAttribute('content','#111111');
+  setTimeout(() => {
+    go('s-home');
+    updateUI();
+    document.getElementById('greeting').textContent = userName.split(' ')[0].toUpperCase();
+  }, 3000);
+}
+
+function goToInbox() {
+  document.getElementById('theme-meta').setAttribute('content','#1a1a2e');
+  history.pushState({screen:'s-inbox'},'','#s-inbox');
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById('s-inbox').classList.add('active');
+  renderInbox();
+}
+
+function goToMpesaMsgs() {
+  document.getElementById('theme-meta').setAttribute('content','#000000');
+  go('s-msgs');
+  renderMsgs();
+}
+
+// ══ SETUP ══
+function loadUser() {
+  loadState();
+  const saved = localStorage.getItem('simupesa_name');
+  if (saved) {
+    userName = saved;
+    document.getElementById('greeting').textContent = saved.split(' ')[0].toUpperCase();
+  }
+  // Always start on inbox
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById('s-inbox').classList.add('active');
+  renderInbox();
+}
+
+function saveSetup() {
+  const name = document.getElementById('setup-name').value.trim().toUpperCase();
+  if (!name) { toast('Please enter your name'); return; }
+  userName = name;
+  localStorage.setItem('simupesa_name', name);
+  document.getElementById('greeting').textContent = name.split(' ')[0];
+  go('s-home');
+  updateUI();
+}
+
+// ══ NAVIGATION ══
+function go(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  history.pushState({screen:id},'','#'+id);
+  localStorage.setItem('simupesa_screen', id);
+  if (id === 's-msgs') {
+    document.getElementById('theme-meta').setAttribute('content','#000000');
+  } else if (id === 's-thread') {
+    document.getElementById('theme-meta').setAttribute('content','#1a1a1a');
+  } else if (id === 's-inbox') {
+    document.getElementById('theme-meta').setAttribute('content','#1a1a2e');
+  } else if (['s-home','s-send','s-pochi','s-goods','s-bill','s-withdraw','s-deposit'].includes(id)) {
+    document.getElementById('theme-meta').setAttribute('content','#3cb72e');
+  } else {
+    document.getElementById('theme-meta').setAttribute('content','#1a1a1a');
+  }
+}
+
+function goBack() {
+  localStorage.setItem('simupesa_screen','s-home');
+  history.back();
+}
+
+function exitMsgs() {
+  document.getElementById('theme-meta').setAttribute('content','#3cb72e');
+  clearSel();
+  history.back();
+}
+
+window.addEventListener('popstate', e => {
+  const id = e.state && e.state.screen ? e.state.screen : 's-inbox';
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  if (id === 's-msgs') {
+    document.getElementById('theme-meta').setAttribute('content','#000000');
+    renderMsgs();
+  } else if (id === 's-inbox') {
+    document.getElementById('theme-meta').setAttribute('content','#1a1a2e');
+    renderInbox();
+  } else {
+    document.getElementById('theme-meta').setAttribute('content','#3cb72e');
+  }
+});
+
+window.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') saveState(); });
+window.addEventListener('pagehide', () => saveState());
+
+// ══ UI ══
+function updateUI() {
+  localStorage.setItem('simupesa_balance', balance.toString());
+  localStorage.setItem('simupesa_fulizaOwed', fulizaOwed.toString());
+  localStorage.setItem('simupesa_fulizaLimit', fulizaLimit.toString());
+  document.getElementById('bal-amt').textContent = 'Ksh' + balance.toFixed(2);
+  const banner = document.getElementById('fuliza-banner');
+  if (fulizaOwed > 0) {
+    banner.style.display = 'block';
+    banner.textContent = `⚡ Fuliza owed: Ksh${fulizaOwed.toFixed(2)} — repaid on next deposit`;
+  } else {
+    banner.style.display = 'none';
+  }
+}
+
+function toast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2800);
+}
+
+// ══ NOTIFICATION POPUP ══
+let notifTimer = null;
+function showNotif(text) {
+  const popup = document.getElementById('notif-popup');
+  document.getElementById('notif-body').textContent = text.length > 80 ? text.substring(0,80)+'...' : text;
+  const now = new Date();
+  const h = now.getHours()%12||12;
+  const m = String(now.getMinutes()).padStart(2,'0');
+  document.getElementById('notif-time').textContent = h+':'+m+(now.getHours()>=12?' PM':' AM');
+  if (notifTimer) { clearTimeout(notifTimer); popup.classList.remove('show'); }
+  setTimeout(() => popup.classList.add('show'), 10);
+  notifTimer = setTimeout(() => { popup.classList.remove('show'); notifTimer = null; }, 4500);
+  if (navigator.vibrate) navigator.vibrate([100,50,100]);
+}
+
+// ══ HELPERS ══
+function code(pfx) {
+  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+  let r = pfx.toUpperCase();
+  for (let i=0; i<(10-pfx.length); i++) r += chars[Math.floor(Math.random()*chars.length)];
+  lastPrefix = pfx.toUpperCase();
+  txCount++;
+  if (txCount % 3 === 0 && fulizaLimit < 1000) { fulizaLimit = Math.min(1000, fulizaLimit+50); updateUI(); }
+  return r;
+}
+
+function stableTime(text) {
+  // Generate a stable time from text content so it never changes on re-render
+  let hash = 0;
+  for (let i = 0; i < text.length; i++) hash = ((hash << 5) - hash) + text.charCodeAt(i);
+  hash = Math.abs(hash);
+  const h = (hash % 12) + 1;
+  const m = String(hash % 60).padStart(2,'0');
+  const ap = hash % 2 === 0 ? 'am' : 'pm';
+  return h + ':' + m + ' ' + ap;
+}
+
+function r(n,d=2) { return n.toFixed(d); }
+
+function dt() {
+  const now = new Date();
+  const d = now.getDate()+'/'+( now.getMonth()+1)+'/'+String(now.getFullYear()).slice(-2);
+  const h = now.getHours()%12||12;
+  const m = String(now.getMinutes()).padStart(2,'0');
+  const ap = now.getHours()>=12?'PM':'AM';
+  return { date:d, time:h+':'+m+' '+ap, obj:now };
+}
+
+function dateSepLabel(d) {
+  const now = new Date();
+  const today = new Date(now.getFullYear(),now.getMonth(),now.getDate());
+  const msgDay = new Date(d.getFullYear(),d.getMonth(),d.getDate());
+  const diff = Math.round((today-msgDay)/86400000);
+  const days=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  const months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const h=d.getHours(); const mn=d.getMinutes();
+  const ap=h>=12?'pm':'am'; const h12=h%12||12;
+  const timeStr=h12+':'+String(mn).padStart(2,'0')+' '+ap;
+  if(diff===0) return 'Today';
+  if(diff===1) return 'Yesterday \u2022 '+timeStr;
+  if(diff<7) return days[d.getDay()]+' \u2022 '+timeStr;
+  return days[d.getDay()]+', '+d.getDate()+' '+months[d.getMonth()]+' \u2022 '+timeStr;
+}
+
+function clr(...ids) { ids.forEach(id => { const el=document.getElementById(id); if(el) el.value=''; }); }
+
+// ══ FEES ══
+function sendFee(amt) {
+  if(amt<=100) return 0; if(amt<=500) return 7; if(amt<=1000) return 13;
+  if(amt<=1500) return 23; if(amt<=2500) return 33; if(amt<=3500) return 53;
+  if(amt<=5000) return 57; if(amt<=20000) return 108; return 108;
+}
+function wdFee(amt) {
+  if(amt<50) return 0; if(amt<=100) return 11; if(amt<=2500) return 29;
+  if(amt<=3500) return 52; if(amt<=5000) return 69; if(amt<=10000) return 115;
+  if(amt<=20000) return 185; return 309;
+}
+function showSendFee() {
+  const a=parseFloat(document.getElementById('sn-amt').value)||0;
+  const f=sendFee(a);
+  document.getElementById('sn-fee').textContent=f>0?`Transaction cost: Ksh${f}.00`:'FREE transaction';
+}
+function showWdFee() {
+  const a=parseFloat(document.getElementById('wd-amt').value)||0;
+  const f=wdFee(a);
+  document.getElementById('wd-fee').textContent=f>0?`Withdrawal fee: Ksh${f}.00`:'';
+}
+
+// ══ DEDUCT + FULIZA ══
+function deduct(total, onSuccess) {
+  if(balance >= total) { balance -= total; updateUI(); onSuccess({ok:true}); return; }
+  const shortfall = total - balance;
+  if(fulizaOwed > 0 || shortfall > fulizaLimit) { toast('❌ Insufficient funds'); return; }
+  const fee = parseFloat((shortfall * 0.01).toFixed(2));
+  const totalOwed = parseFloat((shortfall + fee).toFixed(2));
+  const avail = fulizaLimit - fulizaOwed;
+  document.getElementById('fuliza-breakdown').innerHTML =
+    `<div class="fuliza-row"><span>Your balance</span><span>Ksh${r(balance)}</span></div>
+     <div class="fuliza-row"><span>Shortfall</span><span>Ksh${r(shortfall)}</span></div>
+     <div class="fuliza-row"><span>Access fee (1%)</span><span>Ksh${r(fee)}</span></div>
+     <div class="fuliza-row"><span>Total Fuliza</span><span>Ksh${r(totalOwed)}</span></div>
+     <div class="fuliza-row"><span>Available limit</span><span>Ksh${r(avail)}</span></div>`;
+  document.getElementById('fuliza-modal').classList.add('show');
+  pendingAction = { total, shortfall, fee, totalOwed, onSuccess };
+}
+
+function acceptFuliza() {
+  document.getElementById('fuliza-modal').classList.remove('show');
+  const { total, shortfall, fee, totalOwed, onSuccess } = pendingAction;
+  balance = 0;
+  fulizaOwed += totalOwed;
+  updateUI();
+  onSuccess({ ok:true, usedFuliza:true, shortfall, fee, totalOwed });
+  pendingAction = null;
+}
+
+function rejectFuliza() {
+  document.getElementById('fuliza-modal').classList.remove('show');
+  pendingAction = null;
+}
+
+function processIncomingFunds(amt) {
+  let repaid = 0;
+  if(fulizaOwed > 0) {
+    repaid = Math.min(fulizaOwed, amt);
+    fulizaOwed = parseFloat(Math.max(0, fulizaOwed-repaid).toFixed(2));
+    balance += parseFloat((amt-repaid).toFixed(2));
+  } else {
+    balance += amt;
+  }
+  balance = parseFloat(balance.toFixed(2));
+  updateUI();
+  return repaid;
+}
+
+// ══ TRANSACTIONS ══
+function doSend() {
+  const name=document.getElementById('sn-name').value.trim();
+  const phone=document.getElementById('sn-phone').value.trim();
+  const amt=parseFloat(document.getElementById('sn-amt').value);
+  const pfx=document.getElementById('sn-pfx').value.trim();
+  if(!name||!phone||!amt||!pfx){toast('Please fill all fields');return;}
+  if(!/^\d{10}$/.test(phone)){toast('❌ Phone must be exactly 10 digits');return;}
+  if(pfx.length!==3){toast('❌ Prefix must be 3 letters');return;}
+  const fee=sendFee(amt);
+  deduct(amt+fee, (res)=>{
+    const d=dt(); const c=code(pfx);
+    const daily=(500000-amt).toLocaleString('en-KE',{minimumFractionDigits:2});
+    addMsg(`${c} Confirmed. Ksh${r(amt)} sent to ${name.toUpperCase()} ${phone} on ${d.date} at ${d.time}. New M-PESA balance is Ksh${r(balance)}. Transaction cost, Ksh${fee}.00. Amount you can transact within the day is ${daily}. Earn interest daily on Ziidi MMF,Dial *334#`, d.time, d.obj);
+    if(res.usedFuliza) addFulizaMsg(res, c, d);
+    clr('sn-name','sn-phone','sn-amt','sn-pfx');
+    document.getElementById('sn-fee').textContent='';
+    toast('✅ Sent successfully!'); goBack();
+  });
+}
+
+function doPochi() {
+  const name=document.getElementById('po-name').value.trim();
+  const amt=parseFloat(document.getElementById('po-amt').value);
+  const pfx=document.getElementById('po-pfx').value.trim();
+  if(!name||!amt||!pfx){toast('Please fill all fields');return;}
+  if(pfx.length!==3){toast('❌ Prefix must be 3 letters');return;}
+  deduct(amt, (res)=>{
+    const d=dt(); const c=code(pfx);
+    addMsg(`${c} Confirmed. Ksh${r(amt)} paid to ${name.toUpperCase()} on ${d.date} at ${d.time}. New M-PESA balance is Ksh${r(balance)}. Transaction cost, Ksh0.00. Earn interest daily on Ziidi MMF,Dial *334#`, d.time, d.obj);
+    if(res.usedFuliza) addFulizaMsg(res, c, d);
+    clr('po-name','po-amt','po-pfx');
+    toast('✅ Payment sent!'); goBack();
+  });
+}
+
+function doGoods() {
+  const name=document.getElementById('bg-name').value.trim();
+  const amt=parseFloat(document.getElementById('bg-amt').value);
+  const pfx=document.getElementById('bg-pfx').value.trim();
+  if(!name||!amt||!pfx){toast('Please fill all fields');return;}
+  if(pfx.length!==3){toast('❌ Prefix must be 3 letters');return;}
+  deduct(amt, (res)=>{
+    const d=dt(); const c=code(pfx);
+    const daily=(500000-amt).toLocaleString('en-KE',{minimumFractionDigits:2});
+    addMsg(`${c} Confirmed. Ksh${r(amt)} sent to ${name.toUpperCase()} on ${d.date} at ${d.time}. New M-PESA balance is Ksh${r(balance)}. Transaction cost, Ksh0.00. Amount you can transact within the day is ${daily}. Save frequent Tills for quick payment on M-PESA app https://bit.ly/mpesalnk`, d.time, d.obj);
+    if(res.usedFuliza) addFulizaMsg(res, c, d);
+    clr('bg-name','bg-amt','bg-pfx');
+    toast('✅ Payment successful!'); goBack();
+  });
+}
+
+function doBill() {
+  const bank=document.getElementById('pb-bank').value.trim();
+  const biz=document.getElementById('pb-biz').value.trim().toUpperCase();
+  const acc=document.getElementById('pb-acc').value.trim();
+  const amt=parseFloat(document.getElementById('pb-amt').value);
+  const pfx=document.getElementById('pb-pfx').value.trim();
+  if(!bank||!biz||!acc||!amt||!pfx){toast('Please fill all fields');return;}
+  if(pfx.length!==3){toast('❌ Prefix must be 3 letters');return;}
+  deduct(amt, (res)=>{
+    const d=dt(); const c=code(pfx);
+    const daily=(500000-amt).toLocaleString('en-KE',{minimumFractionDigits:2});
+    const now=d.obj;
+    const dd=String(now.getDate()).padStart(2,'0');
+    const mm=String(now.getMonth()+1).padStart(2,'0');
+    const yyyy=now.getFullYear();
+    const bankDateSlash=`${dd}/${mm}/${yyyy}`;
+    const bankDateDash=`${dd}-${mm}-${yyyy}`;
+    const hh=String(now.getHours()).padStart(2,'0');
+    const mn=String(now.getMinutes()).padStart(2,'0');
+    const bankTime24=`${hh}:${mn}`;
+    const bankUpper=bank.toUpperCase();
+
+    // MSG 1 → MPESA thread: "sent to BANK Paybill Account for account ACC"
+    addMsg(`${c} Confirmed. Ksh${r(amt)} sent to ${bankUpper} Paybill Account for account ${acc} on ${d.date} at ${d.time} New M-PESA balance is Ksh${r(balance)}. Transaction cost, Ksh0.00.Amount you can transact within the day is ${daily}. Save frequent paybills for quick payment on M-PESA app https://bit.ly/mpesalnk`, d.time, d.obj);
+
+    // MSG 2 → Bank's own thread: business name (biz) appears here
+    const c2=code(pfx);
+    let bankId='kcb'; let bankMsg='';
+    if(bankUpper==='KCB') {
+      bankId='kcb';
+      bankMsg=`Ksh ${r(amt)} sent to KCB account ${biz} ${acc} has been received on ${bankDateSlash} at ${d.time}. M-PESA Ref ${c2}. To reverse this transaction, SMS this message to 16120.`;
+    } else if(bankUpper==='EQUITY') {
+      bankId='equity';
+      bankMsg=`Confirmed. Payment of KES. ${r(amt)} to ${biz} Till No. ${acc} has been received. Ref. ${c2} on ${bankDateDash} at ${bankTime24}. Thank you.`;
+    } else if(bankUpper==='COOP') {
+      bankId='kcb';
+      bankMsg=`Co-op Bank: Ksh${r(amt)} received from MPESA for ${biz}. Ref ${c2} on ${bankDateSlash} at ${d.time}. Account ${acc} updated. Queries: 0703027000.`;
+    } else if(bankUpper==='ABSA') {
+      bankId='equity';
+      bankMsg=`ABSA Bank: KES ${r(amt)} credited to ${biz} account ${acc} via M-PESA. Ref: ${c2}. Date: ${bankDateSlash} ${d.time}. Queries: 0709081000.`;
+    } else if(bankUpper==='STANBIC') {
+      bankId='kcb';
+      bankMsg=`Stanbic Bank: ${biz} account ${acc} credited KES ${r(amt)} via M-PESA Ref ${c2} on ${bankDateSlash}. Queries: 0800720061.`;
+    } else if(bankUpper==='KPLC') {
+      bankId='kcb';
+      bankMsg=`Kenya Power: Payment of KES ${r(amt)} received for ${biz} meter ${acc}. Ref: ${c2}. Tokens will be sent shortly. Helpline: 95551.`;
+    } else if(bankUpper==='NAIROBI WATER') {
+      bankId='kcb';
+      bankMsg=`Nairobi Water: Payment of KES ${r(amt)} for ${biz} account ${acc} confirmed. Ref ${c2}. Queries: 0800723232.`;
+    } else {
+      bankId='kcb';
+      bankMsg=`KES ${r(amt)} Mpesa Payment to ${biz} account ${acc} from ${userName} was successful on ${bankDateSlash} at ${d.time}. REF ${c2}. Queries 0709800000.`;
+    }
+    addBankMsg(bankId, bankMsg, d.time, d.obj);
+    if(res.usedFuliza) addFulizaMsg(res, c, d);
+    document.getElementById('pb-bank').value='';
+    clr('pb-biz','pb-acc','pb-amt','pb-pfx');
+    toast('✅ Bill paid!'); goBack();
+  });
+}
+
+function doWithdraw() {
+  const agent=document.getElementById('wd-agent').value.trim();
+  const agno=document.getElementById('wd-agno').value.trim();
+  const amt=parseFloat(document.getElementById('wd-amt').value);
+  const pfx=document.getElementById('wd-pfx').value.trim();
+  if(!agent||!agno||!amt||!pfx){toast('Please fill all fields');return;}
+  if(amt<50){toast('❌ Minimum withdrawal is Ksh50');return;}
+  if(pfx.length!==3){toast('❌ Prefix must be 3 letters');return;}
+  const fee=wdFee(amt);
+  deduct(amt+fee, (res)=>{
+    const d=dt(); const c=code(pfx);
+    const daily=(500000-amt).toLocaleString('en-KE',{minimumFractionDigits:2});
+    addMsg(`${c} Confirmed. Ksh${r(amt)} withdrawn from agent ${agent.toUpperCase()} Store No. ${agno} on ${d.date} at ${d.time}. New M-PESA balance is Ksh${r(balance)}. Transaction cost, Ksh${fee}.00. Amount you can withdraw within the day is ${daily}.`, d.time, d.obj);
+    if(res.usedFuliza) addFulizaMsg(res, c, d);
+    clr('wd-agent','wd-agno','wd-amt','wd-pfx');
+    document.getElementById('wd-fee').textContent='';
+    toast('✅ Withdrawal successful!'); goBack();
+  });
+}
+
+// ══ FULIZA MESSAGES ══
+function addFulizaMsg(res, prevCode, d) {
+  const due=new Date(d.obj); due.setDate(due.getDate()+30);
+  const dueStr=due.getDate()+'/'+(due.getMonth()+1)+'/'+String(due.getFullYear()).slice(-2);
+  addMsg(`${prevCode} Confirmed. Fuliza M-Pesa amount is Ksh ${r(res.shortfall)}. Access Fee charged Ksh ${r(res.fee)}. Total Fuliza M-Pesa outstanding amount is Ksh${r(fulizaOwed)} due on ${dueStr}. To check daily charges, Dial *234*0#OK Select Query Charges`, d.time, d.obj);
+}
+
+function addFulizaRepayMsg(repaid, owedAfter, newBalance, c, d) {
+  if(owedAfter <= 0) {
+    addMsg(`${c}\n Confirmed. Ksh ${r(repaid)} from your M-PESA has been used to fully pay your outstanding Fuliza M-PESA. Available Fuliza M-PESA limit is Ksh ${r(fulizaLimit)}. M-PESA balance is Ksh${r(newBalance)}.`, d.time, d.obj);
+  } else {
+    addMsg(`${c}\n Confirmed. Ksh ${r(repaid)} from your M-PESA has been used to partially pay your outstanding Fuliza M-PESA. Your available Fuliza M-PESA limit is Ksh ${r(fulizaLimit - owedAfter)}. M-PESA balance is Ksh${r(newBalance)}.`, d.time, d.obj);
+  }
+}
+
+function showMsgsMenu() {
+  document.getElementById('msgs-menu').style.display = 'block';
+  document.getElementById('msgs-menu-overlay').style.display = 'block';
+}
+function hideMsgsMenu() {
+  document.getElementById('msgs-menu').style.display = 'none';
+  document.getElementById('msgs-menu-overlay').style.display = 'none';
+}
+function msgsMenuAction(action) {
+  hideMsgsMenu();
+  if (action === 'deleteall') {
+    msgs = []; saveState(); renderMsgs(); goBack();
+  } else if (action === 'search') {
+    openSearch();
+  }
+}
+
+// ══ DEPOSIT ══
+function openPwd() { document.getElementById('pwd-modal').classList.add('show'); document.getElementById('pwd-input').focus(); }
+function closePwd() { document.getElementById('pwd-modal').classList.remove('show'); document.getElementById('pwd-input').value=''; }
+async function chkPwd() {
+  const code = document.getElementById('pwd-input').value.trim().toUpperCase();
+  if (!code) return;
+  const btn = document.querySelector('#pwd-modal .modal-btn-ok');
+  btn.textContent = '...';
+  btn.disabled = true;
+  const result = await validateCode(code, 'deposit');
+  btn.textContent = 'OK';
+  btn.disabled = false;
+  if (result.valid) {
+    // Log deposit auth
+    db.collection('events').add({ type:'deposit_auth', time: firebase.firestore.FieldValue.serverTimestamp() });
+    closePwd(); loadDepositScreen(); go('s-deposit');
+  } else {
+    toast('❌ ' + result.reason);
+    document.getElementById('pwd-input').value = '';
+  }
+}
+
+async function loadDepositScreen() {
+  // Check if admin has set a fixed deposit amount
+  try {
+    const snap = await db.collection('settings').doc('deposit').get();
+    if (snap.exists && snap.data().amount) {
+      const amt = snap.data().amount;
+      document.getElementById('dp-amt-group').style.display = 'none';
+      document.getElementById('dp-amt-fixed').style.display = 'block';
+      document.getElementById('dp-amt-fixed-val').textContent = 'Ksh ' + amt.toLocaleString('en-KE', {minimumFractionDigits:2});
+      document.getElementById('dp-amt').value = amt;
+    } else {
+      document.getElementById('dp-amt-group').style.display = 'block';
+      document.getElementById('dp-amt-fixed').style.display = 'none';
+      document.getElementById('dp-amt').value = '';
+    }
+  } catch(e) {
+    // Firebase error — let user enter amount
+    document.getElementById('dp-amt-group').style.display = 'block';
+    document.getElementById('dp-amt-fixed').style.display = 'none';
+  }
+}
+
+function doDeposit() {
+  const amt=parseFloat(document.getElementById('dp-amt').value);
+  if(!amt||amt<=0){toast('Enter a valid amount');return;}
+  const d=dt();
+  const pfx=lastPrefix||'UCA';
+  const c=code(pfx);
+  const repaid=processIncomingFunds(amt);
+  addMsg(`${c} Confirmed.You have received Ksh${r(amt)} from SIMUPESA DEPOSIT on ${d.date} at ${d.time} New M-PESA balance is Ksh${r(balance)}. Earn interest daily on Ziidi MMF,Dial *334#`, d.time, d.obj);
+  if(repaid>0) {
+    const c2=code(pfx);
+    addFulizaRepayMsg(repaid, fulizaOwed, balance, c2, d);
+  }
+  clr('dp-amt');
+  toast('✅ Deposit successful!'); goBack();
+}
+
+// ══ MESSAGES ══
+function addBankMsg(bankId, text, time, dateObj) {
+  if (!bankMsgs[bankId]) bankMsgs[bankId] = [];
+  bankMsgs[bankId].push({ text, time, dateObj: dateObj || new Date() });
+  saveState();
+  // Update inbox to show new preview
+  if (document.getElementById('s-inbox').classList.contains('active')) renderInbox();
+  // If this bank thread is open, re-render it
+  if (document.getElementById('s-thread').classList.contains('active') &&
+      document.getElementById('thread-name').textContent === bankId) {
+    renderBankThread(bankId);
+  }
+}
+
+function addMsg(text, time, dateObj) {
+  msgs.push({ id:++msgId, text, time, dateObj: dateObj||new Date() });
+  saveState();
+  if(document.getElementById('s-msgs').classList.contains('active')) renderMsgs();
+  showNotif(text);
+  // Update inbox preview
+  if(document.getElementById('s-inbox').classList.contains('active')) renderInbox();
+}
+
+function saveState() {
+  try {
+    const saveable=msgs.map(m=>({ id:m.id, text:m.text, time:m.time, dateStr:m.dateObj instanceof Date?m.dateObj.toISOString():new Date().toISOString() }));
+    localStorage.setItem('simupesa_msgs', JSON.stringify(saveable));
+    localStorage.setItem('simupesa_balance', balance.toString());
+    localStorage.setItem('simupesa_fulizaOwed', fulizaOwed.toString());
+    localStorage.setItem('simupesa_fulizaLimit', fulizaLimit.toString());
+    localStorage.setItem('simupesa_txCount', txCount.toString());
+    localStorage.setItem('simupesa_lastPrefix', lastPrefix);
+    localStorage.setItem('simupesa_bankMsgs', JSON.stringify(bankMsgs));
+  } catch(e){}
+}
+
+function loadState() {
+  try {
+    const sm=localStorage.getItem('simupesa_msgs');
+    if(sm){ const p=JSON.parse(sm); msgs=p.map(m=>({...m,dateObj:new Date(m.dateStr)})); msgId=msgs.length?Math.max(...msgs.map(m=>m.id)):0; }
+    const sb=localStorage.getItem('simupesa_balance'); if(sb!==null) balance=parseFloat(sb);
+    const so=localStorage.getItem('simupesa_fulizaOwed'); if(so!==null) fulizaOwed=parseFloat(so);
+    const sl=localStorage.getItem('simupesa_fulizaLimit'); if(sl!==null) fulizaLimit=parseFloat(sl);
+    const st=localStorage.getItem('simupesa_txCount'); if(st!==null) txCount=parseInt(st);
+    const sp=localStorage.getItem('simupesa_lastPrefix'); if(sp) lastPrefix=sp;
+    const sbm=localStorage.getItem('simupesa_bankMsgs'); if(sbm) bankMsgs=JSON.parse(sbm);
+  } catch(e){}
+}
+
+function formatMsgText(text) {
+  let t = text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  // PASS 1: single combined regex — most specific first, prevents partial date matches
+  t = t.replace(
+    /(https?:\/\/[^\s<&]+)|(\d{1,2}\/\d{1,2}\/\d{2,4} at \d{1,2}:\d{2} (?:AM|PM)\.?)|(\d{2}-\d{2}-\d{4} at \d{2}:\d{2})|(\d{1,2}\/\d{1,2}\/\d{2,4})|(\d{2}-\d{2}-\d{4})|(0[17]\d{8})|(\*[\d\*]+#)/g,
+    function(m){return m.startsWith('http')?'<a href="#" style="color:#8ab4f8;text-decoration:underline;">'+m+'</a>':'<u>'+m+'</u>';}
+  );
+  // PASS 2: standalone 4-8 digit numbers (account nos, SMS codes like 16120, 7893065)
+  // only in plain-text segments — skip existing HTML tags
+  t = t.split(/(<[^>]*>)/).map(function(part){
+    if(part.startsWith('<')) return part;
+    return part.replace(/(?<![A-Za-z\d,\*])(\d{4,8})(?![\d\/\-])/g,function(num,p1,offset,str){
+      const pre=str.substring(Math.max(0,offset-4),offset);
+      if(/[Kk][Ss][Hh][\s.,]?$|KES[\s.,]?$/.test(pre)) return num;
+      return '<u>'+num+'</u>';
+    });
+  }).join('');
+  return t;
+}
+
+function renderMsgs() {
+  const list=document.getElementById('msgs-list');
+  if(!msgs.length){ list.innerHTML='<div style="color:#555;text-align:center;margin-top:40px;font-size:14px;">No messages yet</div>'; return; }
+  let html=''; let lastDay='';
+  msgs.forEach((m,i) => {
+    const dayKey=m.dateObj.toDateString();
+    if(dayKey!==lastDay){ html+=`<div class="msg-date-sep">${dateSepLabel(m.dateObj)}</div>`; lastDay=dayKey; }
+    const sel=selIds.has(m.id);
+    html+=`<div class="msg-bub${sel?' sel':''}" data-id="${m.id}" onlongpress="toggleSel(${m.id})">${formatMsgText(m.text)}</div>`;
+    const isLastOfDay = i===msgs.length-1 || msgs[i+1].dateObj.toDateString()!==dayKey;
+    if(isLastOfDay) html+=`<div class="msg-time-stamp">${m.time.toLowerCase()}</div>`;
+  });
+  list.innerHTML=html;
+  // Long press
+  list.querySelectorAll('.msg-bub').forEach(el => {
+    let t;
+    el.addEventListener('touchstart',()=>{ t=setTimeout(()=>toggleSel(parseInt(el.dataset.id)),600); });
+    el.addEventListener('touchend',()=>clearTimeout(t));
+    el.addEventListener('touchmove',()=>clearTimeout(t));
+  });
+  setTimeout(()=>{ list.scrollTop=list.scrollHeight; },50);
+}
+
+function toggleSel(id) {
+  if(selIds.has(id)) selIds.delete(id); else selIds.add(id);
+  updateDelBar(); renderMsgs();
+}
+function clearSel() { selIds.clear(); updateDelBar(); }
+function updateDelBar() {
+  const bar=document.getElementById('del-bar');
+  if(selIds.size>0){ bar.classList.add('show'); document.getElementById('del-count').textContent=selIds.size+' selected'; }
+  else bar.classList.remove('show');
+}
+function deleteSel() {
+  msgs=msgs.filter(m=>!selIds.has(m.id));
+  saveState(); clearSel(); renderMsgs();
+}
+
+// ══ PHONE INPUT LOCK ══
+document.addEventListener('DOMContentLoaded', ()=>{
+  ['sn-phone'].forEach(id=>{
+    const el=document.getElementById(id);
+    if(!el) return;
+    el.addEventListener('input',()=>{ el.value=el.value.replace(/\D/g,'').slice(0,10); });
+  });
+});
+
+// ══ INIT ══
+
+// ══ CONTACTS DATA (for New Chat) ══
+const contacts = [
+  {name:'Abraham Mwangi', phone:'0705 932086', color:'linear-gradient(135deg,#7b1fa2,#ab47bc)'},
+  {name:'Aisha Wanjiru', phone:'0712 445566', color:'linear-gradient(135deg,#c62828,#ef5350)'},
+  {name:'Brian Otieno', phone:'0722 334455', color:'linear-gradient(135deg,#1565c0,#42a5f5)'},
+  {name:'Caroline Mwangi', phone:'0733 221100', color:'linear-gradient(135deg,#2e7d32,#66bb6a)'},
+  {name:'David Kamau', phone:'0741 889977', color:'linear-gradient(135deg,#e65100,#ff9800)'},
+  {name:'Esther Njeri', phone:'0756 112233', color:'linear-gradient(135deg,#ad1457,#f06292)'},
+  {name:'Florence Owino', phone:'0114 325810', color:'linear-gradient(135deg,#00838f,#26c6da)'},
+  {name:'George Mwenda', phone:'0769 445544', color:'linear-gradient(135deg,#558b2f,#9ccc65)'},
+  {name:'Hannah Wafula', phone:'0790 667788', color:'linear-gradient(135deg,#4527a0,#9575cd)'},
+  {name:'Isaac Mutua', phone:'0701 223344', color:'linear-gradient(135deg,#1976d2,#64b5f6)'},
+  {name:'Janet Akinyi', phone:'0723 556677', color:'linear-gradient(135deg,#bf360c,#ff7043)'},
+  {name:'Kevin Kiptoo', phone:'0715 998877', color:'linear-gradient(135deg,#00695c,#4db6ac)'},
+  {name:'Lucy Chebet', phone:'0745 334422', color:'linear-gradient(135deg,#880e4f,#f48fb1)'},
+  {name:'Michael Odhiambo', phone:'0798 112244', color:'linear-gradient(135deg,#1a237e,#5c6bc0)'},
+  {name:'Nancy Wanjiku', phone:'0711 667799', color:'linear-gradient(135deg,#4e342e,#a1887f)'},
+  {name:'Patrick Maina', phone:'0726 445533', color:'linear-gradient(135deg,#006064,#80cbc4)'},
+  {name:'Rose Adhiambo', phone:'0757 889900', color:'linear-gradient(135deg,#b71c1c,#ef9a9a)'},
+  {name:'Samuel Macharia', phone:'0734 223355', color:'linear-gradient(135deg,#1b5e20,#81c784)'},
+  {name:'Tabitha Wambui', phone:'0768 991122', color:'linear-gradient(135deg,#4a148c,#ce93d8)'},
+  {name:'Victor Omondi', phone:'0792 334466', color:'linear-gradient(135deg,#0d47a1,#29b6f6)'},
+];
+
+// ══ THREAD SELECTION (for fake threads) ══
+let threadSelIds = new Set();
+let currentThreadId = '';
+
+// ══ SEARCH ══
+function openSearch() {
+  go('s-search');
+  setTimeout(() => document.getElementById('search-input').focus(), 200);
+}
+
+function doSearch(query) {
+  const resultsEl = document.getElementById('search-results');
+  const q = query.toLowerCase().trim();
+  if (!q) {
+    resultsEl.innerHTML = '<div class="search-empty">Search your conversations</div>';
+    return;
+  }
+  let html = '';
+  let found = 0;
+  // Search MPESA msgs
+  msgs.forEach(m => {
+    if (m.text.toLowerCase().includes(q)) {
+      found++;
+      const hi = m.text.replace(new RegExp(`(${q})`, 'gi'), '<mark style="background:#2979ff33;color:#8ab4f8;">$1</mark>');
+      html += `<div class="thread-item" onclick="goToMpesaMsgs()">
+        <div class="thread-avatar" style="background:#2a2a2a;"><svg viewBox="0 0 24 24" width="24" height="24"><path fill="#aaa" d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg></div>
+        <div class="thread-body">
+          <div class="thread-name-row"><span class="thread-name">MPESA</span><span class="thread-time">${m.time}</span></div>
+          <div class="thread-preview" style="white-space:normal;font-size:13px;color:#aaa;">${hi.substring(0,100)}...</div>
+        </div>
+      </div>`;
+    }
+  });
+  // Search fake threads
+  fakeThreads.forEach(t => {
+    const allMsgs = [...t.msgs.map(m => m.text), ...(bankMsgs[t.id]||[]).map(m => m.text)];
+    allMsgs.forEach(text => {
+      if (text.toLowerCase().includes(q)) {
+        found++;
+        const hi = text.replace(new RegExp(`(${q})`, 'gi'), '<mark style="background:#2979ff33;color:#8ab4f8;">$1</mark>');
+        html += `<div class="thread-item" onclick="openThread('${t.id}');goBack();">
+          <div class="thread-avatar" style="background:#2a2a2a;"><svg viewBox="0 0 24 24" width="24" height="24"><path fill="#aaa" d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg></div>
+          <div class="thread-body">
+            <div class="thread-name-row"><span class="thread-name">${t.name}</span></div>
+            <div class="thread-preview" style="white-space:normal;font-size:13px;color:#aaa;">${hi.substring(0,100)}...</div>
+          </div>
+        </div>`;
+      }
+    });
+  });
+  resultsEl.innerHTML = found ? html : '<div class="search-empty">No results for "' + query + '"</div>';
+}
+
+// ══ NEW CHAT ══
+function openNewChat() {
+  go('s-newchat');
+  renderContacts('');
+  setTimeout(() => document.getElementById('newchat-to').focus(), 200);
+}
+
+function renderContacts(filter) {
+  const el = document.getElementById('contacts-list');
+  const f = filter.toLowerCase().trim();
+  const filtered = f ? contacts.filter(c => c.name.toLowerCase().includes(f) || c.phone.includes(f)) : contacts;
+  if (!filtered.length) { el.innerHTML = '<div class="search-empty">No contacts found</div>'; return; }
+  // Group by first letter
+  const groups = {};
+  filtered.forEach(c => {
+    const letter = c.name[0].toUpperCase();
+    if (!groups[letter]) groups[letter] = [];
+    groups[letter].push(c);
+  });
+  let html = '';
+  Object.keys(groups).sort().forEach(letter => {
+    html += `<div style="color:#1a73e8;font-size:12px;font-weight:700;padding:10px 4px 4px;letter-spacing:0.5px;">${letter}</div>`;
+    groups[letter].forEach(c => {
+      html += `<div style="display:flex;align-items:center;gap:14px;padding:10px 4px;cursor:pointer;background:#fff;border-radius:10px;margin-bottom:2px;box-shadow:0 1px 2px rgba(0,0,0,0.05);" onclick="startChatWith('${c.name}','${c.phone}')" onmousedown="this.style.background='#f0f0f0'" onmouseup="this.style.background='#fff'">
+        <div style="width:44px;height:44px;border-radius:50%;background:${c.color};display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:700;color:#fff;flex-shrink:0;box-shadow:0 2px 6px rgba(0,0,0,0.15);">${c.name[0]}</div>
+        <div style="flex:1;">
+          <div style="color:#111;font-size:15px;font-weight:500;">${c.name}</div>
+          <div style="color:#666;font-size:13px;">${c.phone}</div>
+        </div>
+      </div>`;
+    });
+  });
+  el.innerHTML = html;
+}
+
+function filterContacts(val) { renderContacts(val); }
+
+function startChatWith(name, phone) {
+  // Create or open a custom thread for this contact
+  const id = 'custom_' + name.replace(/\s/g,'_');
+  // Add to fakeThreads if not there
+  if (!fakeThreads.find(t => t.id === id)) {
+    fakeThreads.unshift({
+      id, name, time: 'now', badge: 0,
+      msgs: [{ text: `Hi ${name.split(' ')[0]}, I need to send you some money via M-PESA.`, date: 'Today' }]
+    });
+  }
+  goBack();
+  setTimeout(() => { renderInbox(); openThread(id); }, 100);
+}
+
+// ══ THREAD MESSAGE SELECTION + DELETION ══
+function initThreadSel(threadId) {
+  currentThreadId = threadId;
+  threadSelIds.clear();
+  updateThreadDelBar();
+}
+
+function toggleThreadMsg(mid) {
+  if (threadSelIds.has(mid)) threadSelIds.delete(mid);
+  else threadSelIds.add(mid);
+  updateThreadDelBar();
+  renderBankThread(currentThreadId);
+}
+
+function updateThreadDelBar() {
+  const bar = document.getElementById('thread-del-bar');
+  if (threadSelIds.size > 0) {
+    bar.classList.add('show');
+    document.getElementById('thread-del-count').textContent = threadSelIds.size + ' selected';
+  } else {
+    bar.classList.remove('show');
+  }
+}
+
+function cancelThreadSel() {
+  threadSelIds.clear();
+  updateThreadDelBar();
+  renderBankThread(currentThreadId);
+}
+
+function deleteThreadSel() {
+  const thread = fakeThreads.find(t => t.id === currentThreadId);
+  if (!thread) return;
+  thread.msgs = thread.msgs.filter((m, i) => !threadSelIds.has('s_' + i));
+  if (bankMsgs[currentThreadId]) {
+    bankMsgs[currentThreadId] = bankMsgs[currentThreadId].filter((m, i) => !threadSelIds.has('b_' + i));
+  }
+  if (thread.sentMsgs) {
+    thread.sentMsgs = thread.sentMsgs.filter((m, i) => !threadSelIds.has('t_' + i));
+  }
+  saveState();
+  threadSelIds.clear();
+  updateThreadDelBar();
+  renderBankThread(currentThreadId);
+}
+
+function initSwipeDelete() {
+  const items = document.querySelectorAll('.swipeable');
+  items.forEach(item => {
+    const inner = item.querySelector('.thread-inner');
+    if (!inner) return;
+    let startX = 0, startY = 0, currentX = 0, tracking = false, revealed = false;
+    inner.style.transform = 'translateX(0)';
+    inner.style.transition = '';
+
+    inner.addEventListener('touchstart', e => {
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+      tracking = true;
+      inner.style.transition = '';
+    }, {passive:true});
+
+    inner.addEventListener('touchmove', e => {
+      if (!tracking) return;
+      const dx = e.touches[0].clientX - startX;
+      const dy = Math.abs(e.touches[0].clientY - startY);
+      if (dy > Math.abs(dx) && Math.abs(dx) < 10) { tracking = false; return; }
+      if (dx > 0 && !revealed) return;
+      currentX = revealed ? Math.min(0, -90 + dx) : Math.max(-90, dx);
+      inner.style.transform = `translateX(${currentX}px)`;
+    }, {passive:true});
+
+    inner.addEventListener('touchend', () => {
+      if (!tracking) return;
+      tracking = false;
+      inner.style.transition = 'transform 0.2s ease';
+      if (currentX < -45) {
+        inner.style.transform = 'translateX(-90px)';
+        revealed = true;
+      } else {
+        inner.style.transform = 'translateX(0)';
+        revealed = false;
+      }
+    });
+  });
+
+  // Tap outside resets all
+  document.getElementById('inbox-list').addEventListener('touchstart', e => {
+    if (!e.target.closest('.swipeable')) {
+      document.querySelectorAll('.thread-inner').forEach(el => {
+        el.style.transition = 'transform 0.2s ease';
+        el.style.transform = 'translateX(0)';
+      });
+    }
+  }, {passive:true});
+}
+
+function deleteInboxThread(id) {
+  if (id === '__mpesa__') { msgs = []; saveState(); renderInbox(); return; }
+  const idx = fakeThreads.findIndex(t => t.id === id);
+  if (idx !== -1) { fakeThreads.splice(idx, 1); delete bankMsgs[id]; saveState(); renderInbox(); }
+}
+
+
+window.addEventListener('load', () => {
+  if('serviceWorker' in navigator) {
+  const swCode = `const CACHE = 'simupesa-v3';
+const FILES = ['/index.html', '/manifest.json', '/icon-192.png', '/icon-512.png'];
+
+self.addEventListener('install', e => {
+  e.waitUntil(caches.open(CACHE).then(c => c.addAll(FILES).catch(() => {})));
+  self.skipWaiting();
+});
+
+self.addEventListener('activate', e => {
+  e.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(k => k !== CACHE).map(k => caches.delete(k)))));
+  self.clients.claim();
+});
+
+self.addEventListener('fetch', e => {
+  e.respondWith(caches.match(e.request).then(r => r || fetch(e.request).catch(() => caches.match('/index.html'))));
+});
+`;
+  const swBlob = new Blob([swCode], {type:'application/javascript'});
+  const swURL = URL.createObjectURL(swBlob);
+  navigator.serviceWorker.register(swURL);
+}
+  // Check if permanently blocked
+  if (localStorage.getItem(LOCK_BLOCKED_KEY) === '1') {
+    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+    document.getElementById('s-applock').classList.add('active');
+    document.getElementById('applock-blocked').style.display = 'block';
+    document.getElementById('applock-input').disabled = true;
+    return;
+  }
+  // Check if already unlocked (one-time)
+  if (localStorage.getItem(LOCK_KEY) === '1') {
+    loadUser();
+  } else {
+    // Show lock screen
+    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+    document.getElementById('s-applock').classList.add('active');
+    setTimeout(() => document.getElementById('applock-input').focus(), 300);
+  }
+});
+</script>
+</body>
+</html>
