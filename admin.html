@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"/>
+<title>Simupesa Admin</title>
+
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+<script>
+  firebase.initializeApp({
+    apiKey: "AIzaSyDeGLxYREEEXn4zmi2QSJi_sU0vcebhkq0",
+    authDomain: "simupesa.firebaseapp.com",
+    projectId: "simupesa",
+    storageBucket: "simupesa.firebasestorage.app",
+    messagingSenderId: "172770947795",
+    appId: "1:172770947795:web:2caf7a7fb427348e8c1a26"
+  });
+  const db = firebase.firestore();
+</script>
+
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Segoe UI',Roboto,sans-serif; background:#0f0f0f; color:#fff; min-height:100vh; }
+
+  /* ── LOGIN ── */
+  #login-screen {
+    display:flex; flex-direction:column; align-items:center;
+    justify-content:center; min-height:100vh; padding:32px;
+  }
+  .login-logo {
+    width:80px; height:80px; border-radius:20px;
+    background:linear-gradient(135deg,#f9a825,#ff6f00);
+    display:flex; align-items:center; justify-content:center;
+    font-size:36px; margin-bottom:20px;
+    box-shadow:0 8px 24px rgba(249,168,37,0.3);
+  }
+  .login-title { font-size:24px; font-weight:700; margin-bottom:6px; }
+  .login-sub { color:#888; font-size:14px; margin-bottom:32px; }
+  .login-input {
+    width:100%; max-width:320px; padding:16px;
+    border-radius:14px; border:1.5px solid #2a2a2a;
+    background:#1a1a1a; color:#fff; font-size:18px;
+    text-align:center; letter-spacing:4px; outline:none;
+    margin-bottom:12px;
+  }
+  .login-input:focus { border-color:#f9a825; }
+  .login-btn {
+    width:100%; max-width:320px; padding:16px;
+    border-radius:14px; background:linear-gradient(135deg,#f9a825,#ff6f00);
+    border:none; color:#fff; font-size:16px; font-weight:700;
+    cursor:pointer; box-shadow:0 4px 16px rgba(249,168,37,0.3);
+  }
+  .login-error { color:#ef5350; font-size:13px; margin-top:10px; min-height:18px; }
+
+  /* ── MAIN PANEL ── */
+  #admin-panel { display:none; }
+
+  .top-bar {
+    background:#1a1a1a; padding:16px 20px;
+    display:flex; align-items:center; justify-content:space-between;
+    border-bottom:1px solid #2a2a2a; position:sticky; top:0; z-index:10;
+  }
+  .top-bar-left { display:flex; align-items:center; gap:12px; }
+  .top-bar-logo {
+    width:36px; height:36px; border-radius:10px;
+    background:linear-gradient(135deg,#f9a825,#ff6f00);
+    display:flex; align-items:center; justify-content:center; font-size:18px;
+  }
+  .top-bar-title { font-size:17px; font-weight:700; }
+  .top-bar-sub { font-size:12px; color:#888; }
+  .logout-btn {
+    background:#2a2a2a; border:none; color:#fff; padding:8px 16px;
+    border-radius:8px; cursor:pointer; font-size:13px;
+  }
+
+  .content { padding:20px; max-width:500px; margin:0 auto; }
+
+  /* ── CARDS ── */
+  .card {
+    background:#1a1a1a; border-radius:16px; padding:20px;
+    margin-bottom:20px; border:1px solid #2a2a2a;
+  }
+  .card-title {
+    font-size:13px; font-weight:600; color:#888;
+    text-transform:uppercase; letter-spacing:1px; margin-bottom:16px;
+  }
+
+  /* ── CODE GENERATOR ── */
+  .code-type-row {
+    display:flex; gap:10px; margin-bottom:16px;
+  }
+  .code-type-btn {
+    flex:1; padding:12px; border-radius:12px;
+    border:2px solid #2a2a2a; background:#131313;
+    color:#888; font-size:14px; font-weight:600; cursor:pointer;
+    transition:all 0.2s;
+  }
+  .code-type-btn.active {
+    border-color:#f9a825; background:#2a1a00; color:#f9a825;
+  }
+  .expiry-row {
+    display:flex; gap:8px; margin-bottom:16px; flex-wrap:wrap;
+  }
+  .expiry-btn {
+    padding:8px 14px; border-radius:10px; border:1.5px solid #2a2a2a;
+    background:#131313; color:#888; font-size:13px; cursor:pointer;
+  }
+  .expiry-btn.active { border-color:#1a73e8; color:#1a73e8; background:#001433; }
+  .generate-btn {
+    width:100%; padding:16px; border-radius:14px;
+    background:linear-gradient(135deg,#1a73e8,#0d47a1);
+    border:none; color:#fff; font-size:16px; font-weight:700;
+    cursor:pointer; box-shadow:0 4px 16px rgba(26,115,232,0.3);
+  }
+  .generate-btn:active { opacity:0.85; }
+
+  /* ── GENERATED CODE DISPLAY ── */
+  .code-display {
+    display:none; margin-top:16px; padding:20px;
+    background:#0d1a00; border:2px solid #2e7d32;
+    border-radius:14px; text-align:center;
+  }
+  .code-display.show { display:block; }
+  .code-display-label { color:#81c784; font-size:12px; margin-bottom:8px; }
+  .code-display-value {
+    font-size:36px; font-weight:900; letter-spacing:6px;
+    color:#fff; margin-bottom:8px;
+    font-family:'Courier New',monospace;
+  }
+  .code-display-meta { color:#888; font-size:12px; margin-bottom:14px; }
+  .copy-btn {
+    padding:10px 24px; border-radius:10px;
+    background:#2e7d32; border:none; color:#fff;
+    font-size:14px; font-weight:600; cursor:pointer;
+  }
+  .copy-btn:active { background:#1b5e20; }
+
+  /* ── ACTIVITY LOG ── */
+  .activity-item {
+    display:flex; align-items:center; gap:12px;
+    padding:12px 0; border-bottom:1px solid #2a2a2a;
+  }
+  .activity-item:last-child { border-bottom:none; }
+  .activity-icon {
+    width:36px; height:36px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-size:16px; flex-shrink:0;
+  }
+  .activity-icon.unlock { background:#1a2e00; }
+  .activity-icon.deposit { background:#001a2e; }
+  .activity-icon.blocked { background:#2e0000; }
+  .activity-icon.code { background:#1a1a00; }
+  .activity-body { flex:1; }
+  .activity-title { font-size:14px; font-weight:500; }
+  .activity-time { font-size:12px; color:#888; margin-top:2px; }
+  .activity-badge {
+    font-size:11px; padding:3px 8px; border-radius:6px; font-weight:600;
+  }
+  .badge-used { background:#1a2e00; color:#81c784; }
+  .badge-expired { background:#2e1a00; color:#ffb74d; }
+  .badge-active { background:#001a2e; color:#64b5f6; }
+  .badge-blocked { background:#2e0000; color:#ef9a9a; }
+
+  /* ── ACTIVE CODES ── */
+  .active-code-item {
+    display:flex; align-items:center; justify-content:space-between;
+    padding:12px 0; border-bottom:1px solid #2a2a2a;
+  }
+  .active-code-item:last-child { border-bottom:none; }
+  .active-code-val {
+    font-size:20px; font-weight:800; letter-spacing:3px;
+    font-family:'Courier New',monospace; color:#fff;
+  }
+  .active-code-meta { font-size:12px; color:#888; margin-top:2px; }
+  .revoke-btn {
+    padding:6px 12px; border-radius:8px; background:#2e0000;
+    border:none; color:#ef5350; font-size:12px; cursor:pointer;
+  }
+  .empty-state { color:#555; font-size:14px; text-align:center; padding:20px 0; }
+
+  /* ── STATS ── */
+  .stats-row { display:flex; gap:12px; }
+  .stat-box {
+    flex:1; background:#131313; border-radius:12px;
+    padding:16px; text-align:center; border:1px solid #2a2a2a;
+  }
+  .stat-num { font-size:28px; font-weight:800; color:#fff; }
+  .stat-label { font-size:11px; color:#888; margin-top:4px; }
+  .stat-box.green .stat-num { color:#81c784; }
+  .stat-box.blue .stat-num { color:#64b5f6; }
+  .stat-box.red .stat-num { color:#ef9a9a; }
+
+  /* ── REFRESH ── */
+  .refresh-btn {
+    background:#2a2a2a; border:none; color:#888; padding:8px 14px;
+    border-radius:8px; cursor:pointer; font-size:12px; margin-bottom:16px;
+  }
+  .refresh-btn:active { background:#333; }
+
+  @keyframes shake {
+    0%,100%{transform:translateX(0);}
+    20%,60%{transform:translateX(-8px);}
+    40%,80%{transform:translateX(8px);}
+  }
+</style>
+</head>
+<body>
+
+<!-- ══ LOGIN ══ -->
+<div id="login-screen">
+  <div class="login-logo">🔐</div>
+  <div class="login-title">Simupesa Admin</div>
+  <div class="login-sub">Cold Breed Solutions — Admin Panel</div>
+  <input type="password" id="admin-pin" class="login-input" placeholder="••••••"
+    maxlength="20" onkeydown="if(event.key==='Enter')adminLogin()"/>
+  <button class="login-btn" onclick="adminLogin()">Enter Panel</button>
+  <div class="login-error" id="login-error"></div>
+</div>
+
+<!-- ══ ADMIN PANEL ══ -->
+<div id="admin-panel">
+  <div class="top-bar">
+    <div class="top-bar-left">
+      <div class="top-bar-logo">🔐</div>
+      <div>
+        <div class="top-bar-title">Simupesa Admin</div>
+        <div class="top-bar-sub">Cold Breed Solutions</div>
+      </div>
+    </div>
+    <button class="logout-btn" onclick="adminLogout()">Logout</button>
+  </div>
+
+  <div class="content">
+
+    <!-- STATS -->
+    <div class="card">
+      <div class="card-title">📊 Overview</div>
+      <div class="stats-row">
+        <div class="stat-box green">
+          <div class="stat-num" id="stat-unlocks">—</div>
+          <div class="stat-label">Unlocks</div>
+        </div>
+        <div class="stat-box blue">
+          <div class="stat-num" id="stat-deposits">—</div>
+          <div class="stat-label">Deposits Auth</div>
+        </div>
+        <div class="stat-box red">
+          <div class="stat-num" id="stat-blocked">—</div>
+          <div class="stat-label">Blocked</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CODE GENERATOR -->
+    <div class="card">
+      <div class="card-title">⚡ Generate One-Time Code</div>
+
+      <div class="code-type-row">
+        <button class="code-type-btn active" id="btn-unlock" onclick="selectType('unlock')">
+          🔓 App Unlock
+        </button>
+        <button class="code-type-btn" id="btn-deposit" onclick="selectType('deposit')">
+          💰 Deposit
+        </button>
+      </div>
+
+      <div style="font-size:12px;color:#888;margin-bottom:10px;">Code valid for:</div>
+      <div class="expiry-row">
+        <button class="expiry-btn active" id="exp-5" onclick="selectExpiry(5)">5 min</button>
+        <button class="expiry-btn" id="exp-10" onclick="selectExpiry(10)">10 min</button>
+        <button class="expiry-btn" id="exp-30" onclick="selectExpiry(30)">30 min</button>
+        <button class="expiry-btn" id="exp-60" onclick="selectExpiry(60)">1 hour</button>
+      </div>
+
+      <button class="generate-btn" onclick="generateCode()">⚡ Generate Code</button>
+
+      <div class="code-display" id="code-display">
+        <div class="code-display-label" id="code-display-label">App Unlock Code</div>
+        <div class="code-display-value" id="code-display-value">——————</div>
+        <div class="code-display-meta" id="code-display-meta">Valid for 5 minutes</div>
+        <button class="copy-btn" onclick="copyCode()">📋 Copy Code</button>
+      </div>
+    </div>
+
+    <!-- ACTIVE CODES -->
+    <div class="card">
+      <div class="card-title">🟢 Active Codes</div>
+      <button class="refresh-btn" onclick="loadActiveCodes()">↻ Refresh</button>
+      <div id="active-codes-list"><div class="empty-state">Loading...</div></div>
+    </div>
+
+    <!-- ACTIVITY LOG -->
+    <div class="card">
+      <div class="card-title">📋 Recent Activity</div>
+      <button class="refresh-btn" onclick="loadActivity()">↻ Refresh</button>
+      <div id="activity-list"><div class="empty-state">Loading...</div></div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+// ══ ADMIN CONFIG ══
+const ADMIN_PIN = 'LittleFinger'; // ← REPLACE WITH YOUR ADMIN PIN
+
+let selectedType = 'unlock';
+let selectedExpiry = 5;
+let lastGeneratedCode = '';
+
+// ══ LOGIN ══
+function adminLogin() {
+  const pin = document.getElementById('admin-pin').value;
+  if (pin === ADMIN_PIN) {
+    document.getElementById('login-screen').style.display = 'none';
+    document.getElementById('admin-panel').style.display = 'block';
+    loadStats();
+    loadActiveCodes();
+    loadActivity();
+  } else {
+    const err = document.getElementById('login-error');
+    err.textContent = '❌ Wrong PIN';
+    const inp = document.getElementById('admin-pin');
+    inp.style.animation = 'shake 0.4s ease';
+    setTimeout(() => inp.style.animation = '', 400);
+    inp.value = '';
+  }
+}
+
+function adminLogout() {
+  document.getElementById('admin-panel').style.display = 'none';
+  document.getElementById('login-screen').style.display = 'flex';
+  document.getElementById('admin-pin').value = '';
+}
+
+// ══ TYPE + EXPIRY SELECTION ══
+function selectType(type) {
+  selectedType = type;
+  document.getElementById('btn-unlock').classList.toggle('active', type === 'unlock');
+  document.getElementById('btn-deposit').classList.toggle('active', type === 'deposit');
+  document.getElementById('code-display').classList.remove('show');
+}
+
+function selectExpiry(mins) {
+  selectedExpiry = mins;
+  [5,10,30,60].forEach(m => {
+    document.getElementById('exp-'+m).classList.toggle('active', m === mins);
+  });
+}
+
+// ══ GENERATE CODE ══
+async function generateCode() {
+  const btn = document.querySelector('.generate-btn');
+  btn.textContent = 'Generating...';
+  btn.disabled = true;
+
+  // Generate random 6-char alphanumeric code
+  const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+  let code = '';
+  for (let i = 0; i < 6; i++) code += chars[Math.floor(Math.random() * chars.length)];
+
+  const expiresAt = new Date(Date.now() + selectedExpiry * 60 * 1000);
+
+  try {
+    await db.collection('codes').doc(code).set({
+      purpose: selectedType,
+      used: false,
+      createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+      expiresAt: firebase.firestore.Timestamp.fromDate(expiresAt),
+      expiryMins: selectedExpiry
+    });
+
+    // Show the code
+    lastGeneratedCode = code;
+    document.getElementById('code-display-label').textContent =
+      selectedType === 'unlock' ? '🔓 App Unlock Code' : '💰 Deposit Code';
+    document.getElementById('code-display-value').textContent = code;
+    document.getElementById('code-display-meta').textContent =
+      `Valid for ${selectedExpiry} minute${selectedExpiry > 1 ? 's' : ''} • Expires at ${expiresAt.toLocaleTimeString('en-KE', {hour:'2-digit',minute:'2-digit'})}`;
+    document.getElementById('code-display').classList.add('show');
+
+    loadActiveCodes();
+  } catch(e) {
+    alert('Error generating code: ' + e.message);
+  }
+
+  btn.textContent = '⚡ Generate Code';
+  btn.disabled = false;
+}
+
+function copyCode() {
+  navigator.clipboard.writeText(lastGeneratedCode).then(() => {
+    const btn = document.querySelector('.copy-btn');
+    btn.textContent = '✅ Copied!';
+    setTimeout(() => btn.textContent = '📋 Copy Code', 2000);
+  });
+}
+
+// ══ LOAD ACTIVE CODES ══
+async function loadActiveCodes() {
+  const el = document.getElementById('active-codes-list');
+  el.innerHTML = '<div class="empty-state">Loading...</div>';
+  try {
+    const snap = await db.collection('codes')
+      .where('used', '==', false)
+      .get();
+
+    const now = Date.now();
+    const active = [];
+    snap.forEach(doc => {
+      const d = doc.data();
+      if (d.expiresAt.toMillis() > now) {
+        active.push({ id: doc.id, ...d });
+      }
+    });
+
+    if (!active.length) {
+      el.innerHTML = '<div class="empty-state">No active codes</div>';
+      return;
+    }
+
+    el.innerHTML = active.map(c => {
+      const minsLeft = Math.ceil((c.expiresAt.toMillis() - now) / 60000);
+      return `<div class="active-code-item">
+        <div>
+          <div class="active-code-val">${c.id}</div>
+          <div class="active-code-meta">${c.purpose === 'unlock' ? '🔓 Unlock' : '💰 Deposit'} · ${minsLeft} min left</div>
+        </div>
+        <button class="revoke-btn" onclick="revokeCode('${c.id}')">Revoke</button>
+      </div>`;
+    }).join('');
+  } catch(e) {
+    el.innerHTML = '<div class="empty-state">Error loading codes</div>';
+  }
+}
+
+async function revokeCode(code) {
+  await db.collection('codes').doc(code).update({ used: true });
+  loadActiveCodes();
+}
+
+// ══ LOAD ACTIVITY ══
+async function loadActivity() {
+  const el = document.getElementById('activity-list');
+  el.innerHTML = '<div class="empty-state">Loading...</div>';
+  try {
+    const snap = await db.collection('events')
+      .orderBy('time', 'desc')
+      .limit(20)
+      .get();
+
+    if (snap.empty) {
+      el.innerHTML = '<div class="empty-state">No activity yet</div>';
+      return;
+    }
+
+    el.innerHTML = snap.docs.map(doc => {
+      const d = doc.data();
+      const t = d.time ? d.time.toDate().toLocaleString('en-KE') : 'Just now';
+      const icons = { app_unlock:'🔓', deposit_auth:'💰', blocked:'🚫', code_generated:'⚡' };
+      const labels = { app_unlock:'App Unlocked', deposit_auth:'Deposit Authorised', blocked:'Device Blocked', code_generated:'Code Generated' };
+      const badgeClass = { app_unlock:'badge-used', deposit_auth:'badge-used', blocked:'badge-blocked', code_generated:'badge-active' };
+      return `<div class="activity-item">
+        <div class="activity-icon ${d.type === 'blocked' ? 'blocked' : d.type === 'deposit_auth' ? 'deposit' : 'unlock'}">
+          ${icons[d.type] || '📋'}
+        </div>
+        <div class="activity-body">
+          <div class="activity-title">${labels[d.type] || d.type}</div>
+          <div class="activity-time">${t}</div>
+        </div>
+        <span class="activity-badge ${badgeClass[d.type] || 'badge-active'}">${labels[d.type] || d.type}</span>
+      </div>`;
+    }).join('');
+  } catch(e) {
+    el.innerHTML = '<div class="empty-state">Error loading activity</div>';
+  }
+}
+
+// ══ LOAD STATS ══
+async function loadStats() {
+  try {
+    const snap = await db.collection('events').get();
+    let unlocks = 0, deposits = 0, blocked = 0;
+    snap.forEach(doc => {
+      const t = doc.data().type;
+      if (t === 'app_unlock') unlocks++;
+      else if (t === 'deposit_auth') deposits++;
+      else if (t === 'blocked') blocked++;
+    });
+    document.getElementById('stat-unlocks').textContent = unlocks;
+    document.getElementById('stat-deposits').textContent = deposits;
+    document.getElementById('stat-blocked').textContent = blocked;
+  } catch(e) {}
+}
+
+// Enter key for login
+document.getElementById('admin-pin').addEventListener('keydown', e => {
+  if (e.key === 'Enter') adminLogin();
+});
+</script>
+</body>
+</html>
